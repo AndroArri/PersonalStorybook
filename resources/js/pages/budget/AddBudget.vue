@@ -14,14 +14,21 @@
                     :invalid="BudgetDto.name.invalid"
                     v-model="BudgetDto.name.value"
                 ></InputText>
-                <div class="grid justify-items-center">
+                <div class="grid justify-items-start">
                     <ColorPicker
                         :id="BudgetDto.color.id"
                         v-model="BudgetDto.color.value"
                         label="Colore*"
                     ></ColorPicker>
                 </div>
-                <div class="grid justify-items-end">
+                <InputNumber
+                    :id="BudgetDto.value.id"
+                    v-model="BudgetDto.value.value"
+                    :label="BudgetDto.value.label"
+                    :type="typeValue"
+                    :visible="BudgetDto.value.visible"
+                ></InputNumber>
+                <div class="grid justify-items-start">
                     <InputSwitch
                         :id="BudgetDto.type.id"
                         v-model="BudgetDto.type.value"
@@ -31,16 +38,9 @@
                         {{ BudgetDto.type.label }}
                     </InputSwitch>
                 </div>
-                <InputNumber
-                    :id="BudgetDto.value.id"
-                    v-model="BudgetDto.value.value"
-                    :label="BudgetDto.value.label"
-                    :type="typeValue"
-                    :visible="BudgetDto.value.visible"
-                ></InputNumber>
             </div>
             <div class="grid grid-cols-4 mt-10 gap-3">
-                <div class="grid col-end-4 justify-content">
+                <div class="grid justify-content">
                     <Button
                         :id="ButtonData.id"
                         :label="ButtonData.label"
@@ -48,7 +48,7 @@
                         @buttonClick="ButtonData.onClick()"
                     ></Button>
                 </div>
-                <div class="grid col-end-5 justify-content">
+                <div class="grid justify-content">
                     <Button
                         :id="ButtonCancel.id"
                         :label="ButtonCancel.label"
