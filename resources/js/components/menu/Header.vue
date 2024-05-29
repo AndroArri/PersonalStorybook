@@ -60,7 +60,7 @@
 import Menubar from "primevue/menubar";
 import Badge from "primevue/badge";
 import { ref } from "vue";
-import Button from "./Button.vue";
+import Button from "../button/Button.vue";
 import ProfileMenu from "./ProfileMenu.vue";
 
 const props = defineProps({

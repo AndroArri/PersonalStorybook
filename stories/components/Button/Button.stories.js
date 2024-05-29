@@ -1,5 +1,5 @@
 import { fn } from "@storybook/test";
-import Basic from "/resources/js/components/Button.vue";
+import Basic from "/resources/js/components/button/Button.vue";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {

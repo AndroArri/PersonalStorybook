@@ -1,5 +1,5 @@
 import { fn } from "@storybook/test";
-import Header from "/resources/js/components/Header.vue";
+import Header from "/resources/js/components/menu/Header.vue";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {

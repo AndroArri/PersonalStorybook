@@ -1,4 +1,4 @@
-import Profile from "/resources/js/components/ProfileMenu.vue";
+import Profile from "/resources/js/components/menu/ProfileMenu.vue";
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
