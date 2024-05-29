@@ -28,7 +28,7 @@ export const LoggedIn = {
         user: {
             name: "Andrea Arrighini",
         },
-        profileImg: "/stories/Assets/Profile.jpg",
+        profileImg: "/assets/image/Profile.jpg",
     },
 };
 
