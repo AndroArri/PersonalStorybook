@@ -21,9 +21,10 @@ export enum eSelectionMode {
 };
 
 export interface iProps {
-    id: number;
+    id: string;
     mode: string;
     invalid: boolean;
+    today: Date;
 }
 </script>
 
