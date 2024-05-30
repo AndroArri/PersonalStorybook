@@ -4,7 +4,7 @@
     :severity="severityProxy"
     :size="sizeProxy"
     :link="!props.link ? false : true"
-    :icon="props.icon"
+    :icon="iconProxy"
     :label="props.label"
     :disabled="props.disabled"
     :rounded="props.rounded"
@@ -23,20 +23,20 @@ export enum eSeverity {
   Info,
   Warning,
   Help,
-  Danger
+  Danger,
 }
 
 export enum eSize {
   Small,
   Normal,
-  Large
+  Large,
 }
-
 </script>
 
 <script lang="ts" setup>
 import Button from "primevue/button";
 import { computed, PropType } from "vue";
+import { PrimeIcons, PrimeIconsOptions } from "primevue/api";
 
 const emit = defineEmits(["buttonClick"]);
 
@@ -62,8 +62,8 @@ const props = defineProps({
     default: null,
   },
   icon: {
-    type: String,
-    default: null,
+    type: String as PropType<keyof PrimeIconsOptions>,
+    default: undefined,
   },
   disabled: {
     type: Boolean,
@@ -79,11 +79,28 @@ const props = defineProps({
   },
 });
 
+const iconProxy = computed((): string | undefined => {
+  
+  if (props.icon) {
+    const iconExist = Object.values(PrimeIcons).indexOf(props.icon);
+    if(iconExist > -1) {
+      return props.icon;
+    }
+    console.warn(`props.icon passed but his value is not a PrimeIcons valid`);
+    return undefined;
+  }
+  return undefined;
+});
+
 const severityProxy = computed((): string | undefined => {
-  return props.severity === eSeverity.Primary ? undefined : eSeverity[props.severity];
-})
+  return props.severity === eSeverity.Primary
+    ? undefined
+    : eSeverity[props.severity];
+});
 
 const sizeProxy = computed((): "small" | "large" | undefined => {
-  return props.size === eSize.Normal ? undefined : eSize[props.size] as "small" | "large";
+  return props.size === eSize.Normal
+    ? undefined
+    : (eSize[props.size] as "small" | "large");
 });
 </script>
