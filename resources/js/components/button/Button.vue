@@ -15,8 +15,8 @@
   </Button>
 </template>
 
-<script>
-enum eSeverity {
+<script lang="ts">
+export enum eSeverity {
   Primary,
   Secondary,
   Success,
@@ -26,7 +26,7 @@ enum eSeverity {
   Danger
 }
 
-enum eSize {
+export enum eSize {
   Small,
   Normal,
   Large
