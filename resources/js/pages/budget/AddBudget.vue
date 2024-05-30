@@ -76,7 +76,7 @@ export interface ButtonInterface {
     label: string;
     disabled: boolean;
     onClick: Function;
-    severity?: string;
+    severity?: eSeverity;
 }
 
 export interface BudgetInterface {
@@ -142,7 +142,7 @@ const ButtonCancel: ButtonInterface = {
     id: "cancel",
     label: "Cancella",
     disabled: false,
-    severity: "danger",
+    severity: eSeverity.Danger,
     onClick: () => {
         //TODO Effettuare cancellazione
         console.log("cancella");
