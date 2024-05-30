@@ -1,5 +1,6 @@
 import { fn } from "@storybook/test";
 import Button from "@/components/button/Button.vue";
+import { PrimeIcons } from "primevue/api";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
@@ -31,6 +32,7 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const basic = {
     args: {
+        id: "basic",
         severity: "primary",
         label: "Basic",
         size: "normal",
@@ -39,6 +41,7 @@ export const basic = {
 
 export const Link = {
     args: {
+        id: "link",
         label: "Link",
         link: "www.google.it",
     },
@@ -46,13 +49,15 @@ export const Link = {
 
 export const Icons = {
     args: {
+        id: "icon",
         label: 'icon',
-        icon: 'pi pi-check'
+        icon: PrimeIcons.CHECK
     }
 };
 
 export const Disabled = {
     args: {
+        id: "disabled",
         label: 'disabled',
         disabled: true
     }
@@ -60,6 +65,7 @@ export const Disabled = {
 
 export const Rounded = {
     args: {
+        id: "rounded",
         label: 'Rounded',
         rounded: true
     }
@@ -67,6 +73,7 @@ export const Rounded = {
 
 export const Badges = {
     args: {
+        id: "badges",
         label: 'Badges',
         badges: "8"
     }
