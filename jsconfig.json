@@ -4,7 +4,6 @@
         "paths": {
             "@/*": ["resources/js/*"]
         },
-        "types": ["module"],
         "strict": true
     },
     "exclude": ["node_modules", "public"]
