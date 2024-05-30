@@ -1,9 +1,9 @@
 import { fn } from "@storybook/test";
-import Basic from "/resources/js/components/Button.vue";
+import Button from "@/components/button/Button.vue";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
-    component: Basic,
+    component: Button,
     tags: ["autodocs"],
     argTypes: {
         size: {
