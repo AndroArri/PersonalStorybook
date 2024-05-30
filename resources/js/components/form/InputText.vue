@@ -13,7 +13,6 @@
 
 <script setup>
 import Inputtext from "primevue/inputtext";
-import { computed, ref } from "vue";
 const textValue = defineModel();
 
 const props = defineProps({
