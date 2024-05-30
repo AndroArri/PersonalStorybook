@@ -142,7 +142,7 @@ const ButtonCancel: ButtonInterface = {
     id: "cancel",
     label: "Cancella",
     disabled: false,
-    severity: eSeverity.Danger,
+    severity: eSeverity.Secondary,
     onClick: () => {
         //TODO Effettuare cancellazione
         console.log("cancella");
