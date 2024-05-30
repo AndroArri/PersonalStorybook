@@ -37,12 +37,12 @@
 </template>
 
 <script>
-import Header from "/resources/js/components/Header.vue";
-import Card from "/resources/js/components/Card.vue";
-import InputText from "/resources/js/components/Input/InputText.vue";
-import Button from "/resources/js/components/Button.vue";
-import Checkbox from "/resources/js/components/Input/Checkbox.vue";
-import Password from "/resources/js/components/Input/Password.vue";
+import Header from "@/components/menu/Header.vue";
+import Card from "@/components/panel/Card.vue";
+import InputText from "@/components/form/InputText.vue";
+import Button from "@/components/button/Button.vue";
+import Checkbox from "@/components/form/Checkbox.vue";
+import Password from "@/components/form/Password.vue";
 import { ref, computed } from "vue";
 export const pageType = {
     Login: 0,

@@ -89,15 +89,15 @@ export interface BudgetInterface {
 </script>
 
 <script lang="ts" setup>
-import Layout from "../../layouts/Layout.vue";
-import Card from "../../components/Card.vue";
-import InputText from "../../components/Input/InputText.vue";
-import ColorPicker from "../../components/Input/ColorPicker.vue";
+import Layout from "@//layouts/Layout.vue";
+import Card from "@/components/panel/Card.vue";
+import InputText from "@/components/form/InputText.vue";
+import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber, {
     InputNumberType,
-} from "../../components/Input/InputNumber.vue";
-import InputSwitch from "../../components/Input/InputSwitch.vue";
-import Button from "../../components/Button.vue";
+} from "@/components/form/InputNumber.vue";
+import InputSwitch from "@/components/form/InputSwitch.vue";
+import Button, { eSeverity } from "@/components/button/Button.vue";
 import { ref } from "vue";
 
 const BudgetDto = ref<BudgetInterface>({

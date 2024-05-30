@@ -61,7 +61,7 @@ import Menubar from "primevue/menubar";
 import Badge from "primevue/badge";
 import { ref } from "vue";
 import Button, { eSize, eSeverity } from "@/components/button/Button.vue";
-import ProfileMenu from "../menu/ProfileMenu.vue";
+import ProfileMenu from "@/components/menu/ProfileMenu.vue";
 
 const props = defineProps({
   user: Object,

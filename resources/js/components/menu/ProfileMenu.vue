@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from "vue";
-import Button from "./Button.vue";
+import Button from "@/components/button/Button.vue";
 import TieredMenu from "primevue/tieredmenu";
 import Avatar from "primevue/avatar";
 

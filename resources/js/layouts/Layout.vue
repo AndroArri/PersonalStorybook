@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import Header from "../components/Header.vue";
+import Header from "@/components/menu/Header.vue";
 import { Head, usePage } from "@inertiajs/vue3";
 
 const page = usePage();
