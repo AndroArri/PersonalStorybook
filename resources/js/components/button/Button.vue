@@ -17,19 +17,19 @@
 
 <script lang="ts">
 export enum eSeverity {
-  Primary,
-  Secondary,
-  Success,
-  Info,
-  Warning,
-  Help,
-  Danger,
+  Primary = "primary",
+  Secondary = "secondary",
+  Success = "success",
+  Info = "info",
+  Warning = "warning",
+  Help = "help",
+  Danger = "danger",
 }
 
 export enum eSize {
-  Small,
-  Normal,
-  Large,
+  Small = "small",
+  Normal = "normal",
+  Large = "large",
 }
 </script>
 
@@ -50,11 +50,11 @@ const props = defineProps({
     required: false,
   },
   severity: {
-    type: Number as PropType<eSeverity>,
-    default: eSeverity.Primary,
+    type: String as PropType<eSeverity>,
+    default: undefined,
   },
   size: {
-    type: Number as PropType<eSize>,
+    type: String as PropType<eSize>,
     default: eSize.Normal,
   },
   link: {
@@ -80,10 +80,9 @@ const props = defineProps({
 });
 
 const iconProxy = computed((): string | undefined => {
-  
   if (props.icon) {
     const iconExist = Object.values(PrimeIcons).indexOf(props.icon);
-    if(iconExist > -1) {
+    if (iconExist > -1) {
       return props.icon;
     }
     console.warn(`props.icon passed but his value is not a PrimeIcons valid`);
@@ -92,15 +91,28 @@ const iconProxy = computed((): string | undefined => {
   return undefined;
 });
 
-const severityProxy = computed((): string | undefined => {
-  return props.severity === eSeverity.Primary
-    ? undefined
-    : eSeverity[props.severity];
+const severityProxy = computed((): eSeverity | undefined => {
+  if (!props.severity) {
+    return undefined;
+  }
+  const severityExist = Object.values(eSeverity).indexOf(props.severity);
+  if (severityExist > -1) {
+    return props.severity;
+  }
+  return undefined;
 });
 
 const sizeProxy = computed((): "small" | "large" | undefined => {
-  return props.size === eSize.Normal
-    ? undefined
-    : (eSize[props.size] as "small" | "large");
+  if (!props.size) {
+    return undefined;
+  }
+  const sizeExist = Object.values(eSize).indexOf(props.size);
+  if (sizeExist > -1) {
+    if(props.size === eSize.Normal) {
+      return undefined;
+    }
+    return props.size as "small" | "large";
+  }
+  return undefined;
 });
 </script>
