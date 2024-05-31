@@ -6,6 +6,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import Lara from "/resources/js/components/presets/Lara/";
 // Import global styles
 import "/resources/css/app.css";
+import "primeicons/primeicons.css";
 
 
 setup((app) => {

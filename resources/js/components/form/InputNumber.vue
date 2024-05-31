@@ -34,7 +34,7 @@ export interface InputNumberProxy {
 
 <script lang="ts" setup>
 import InputNumber from "primevue/inputnumber";
-import { computed } from "vue";
+import { computed, PropType } from "vue";
 
 const numberValue = defineModel();
 

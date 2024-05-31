@@ -76,7 +76,7 @@ export interface ButtonInterface {
     label: string;
     disabled: boolean;
     onClick: Function;
-    severity?: string;
+    severity?: eSeverity;
 }
 
 export interface BudgetInterface {
@@ -89,15 +89,15 @@ export interface BudgetInterface {
 </script>
 
 <script lang="ts" setup>
-import Layout from "../../layouts/Layout.vue";
-import Card from "../../components/panel/Card.vue";
-import InputText from "../../components/form/InputText.vue";
-import ColorPicker from "../../components/form/ColorPicker.vue";
+import Layout from "@//layouts/Layout.vue";
+import Card from "@/components/panel/Card.vue";
+import InputText from "@/components/form/InputText.vue";
+import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber, {
     InputNumberType,
-} from "../../components/form/InputNumber.vue";
-import InputSwitch from "../../components/form/InputSwitch.vue";
-import Button from "../../components/button/Button.vue";
+} from "@/components/form/InputNumber.vue";
+import InputSwitch from "@/components/form/InputSwitch.vue";
+import Button, { eSeverity } from "@/components/button/Button.vue";
 import { ref } from "vue";
 
 const BudgetDto = ref<BudgetInterface>({
@@ -142,7 +142,7 @@ const ButtonCancel: ButtonInterface = {
     id: "cancel",
     label: "Cancella",
     disabled: false,
-    severity: "danger",
+    severity: eSeverity.Secondary,
     onClick: () => {
         //TODO Effettuare cancellazione
         console.log("cancella");

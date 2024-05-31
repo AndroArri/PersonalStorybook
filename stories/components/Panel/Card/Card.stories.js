@@ -1,5 +1,4 @@
-import { within, userEvent, expect } from '@storybook/test';
-import Card from '/resources/js/components/panel/Card.vue';
+import Card from '@/components/panel/Card.vue';
 
 export default {
   component: Card,
