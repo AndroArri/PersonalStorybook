@@ -4,7 +4,9 @@
         "paths": {
             "@/*": ["resources/js/*"]
         },
-        "strict": true
+        "strict": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
     },
     "exclude": ["node_modules", "public"]
 }
