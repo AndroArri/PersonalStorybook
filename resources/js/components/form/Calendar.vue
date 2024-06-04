@@ -1,30 +1,38 @@
 <template>
-    <div class="grid grid-cols-1">
-        <label :for="props.id"><slot></slot></label>
-        <Calendar
-            :id="props.id"
-            v-model="value"
-            dateFormat="dd/mm/yy"
-            showIcon
-            :minDate="props.today"
-            selectionMode="range"
-            showButtonBar
-            :invalid="props.invalid"
-        ></Calendar>
-    </div>
+  <div class="grid grid-cols-1 gap-2">
+    <label :for="props.id"><slot></slot></label>
+    <Calendar
+      :id="props.id"
+      v-model="value"
+      :dateFormat="DATE_FORMAT"
+      :showIcon="props.showIcon"
+      :minDate="props.minDate"
+      :maxDate="props.maxDate"
+      :selectionMode="props.mode"
+      :showButtonBar="props.buttonBar"
+      :invalid="props.invalid"
+    ></Calendar>
+  </div>
 </template>
 
 <script lang="ts">
-export enum eSelectionMode {
-    range = "range",
-    single = "single"
-};
+export const DATE_FORMAT = "dd/mm/yy";
 
-export interface iProps {
-    id: string;
-    mode: string;
-    invalid: boolean;
-    today: Date;
+export enum eCalendarSelectionMode {
+  Range = "range",
+  Single = "single",
+  Multiple = "multiple",
+}
+
+export interface iCalendarProps {
+  id: string;
+  showIcon?: boolean;
+  mode?: eCalendarSelectionMode;
+  invalid?: boolean;
+  minDate?: Date;
+  maxDate?: Date;
+  buttonBar?: boolean;
+  disabled?: boolean;
 }
 </script>
 
@@ -35,5 +43,13 @@ const value = defineModel();
 
 const today = new Date();
 
-const props = defineProps<iProps>();
+const props = withDefaults(defineProps<iCalendarProps>(), {
+  showIcon: false,
+  mode: eCalendarSelectionMode.Single,
+  invalid: false,
+  minDate: undefined,
+  maxDate: undefined,
+  buttonBar: false,
+  disabled: false,
+});
 </script>

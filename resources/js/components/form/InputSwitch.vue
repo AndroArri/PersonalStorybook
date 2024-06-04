@@ -1,28 +1,27 @@
 <template>
-    <div class="grid grid-cols-1 gap-2">
-        <label :for="props.id"><slot></slot></label>
-        <div class="grid justify-items-center">
-            <InputSwitch
-                v-model="value"
-                :id="props.id"
-                :invalid="props.invalid"
-            ></InputSwitch>
-        </div>
-    </div>
+  <div class="grid grid-cols-1 gap-2 justify-items-center">
+    <label :for="props.id"><slot></slot></label>
+      <InputSwitch
+        v-model="value"
+        :id="props.id"
+        :invalid="props.invalid"
+      ></InputSwitch>
+  </div>
 </template>
+
+<script lang="ts">
+export interface iInputSwitchProps {
+  id: string;
+  invalid?: boolean;
+}
+</script>
 
 <script lang="ts" setup>
 import InputSwitch from "primevue/inputswitch";
 
 const value = defineModel();
 
-const props = defineProps({
-    id: String,
-    label: String,
-    invalid: {
-        type: Boolean,
-        required: false,
-        default: false,
-    },
+const props = withDefaults(defineProps<iInputSwitchProps>(), {
+  invalid: false,
 });
 </script>

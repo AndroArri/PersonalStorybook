@@ -11,13 +11,11 @@
     :badge="props.badges"
     @click="$emit('buttonClick', props.id)"
   >
-    <slot></slot>
   </Button>
 </template>
 
 <script lang="ts">
 export enum eSeverity {
-  Primary = "primary",
   Secondary = "secondary",
   Success = "success",
   Info = "info",
@@ -31,6 +29,19 @@ export enum eSize {
   Normal = "normal",
   Large = "large",
 }
+export const EMIT: string[] = ["ButtonClick"];
+
+export interface iButtonProps {
+  id: string;
+  label: string;
+  severity?: eSeverity;
+  size?: eSize;
+  link?: string;
+  icon?: string;
+  disabled?: boolean;
+  rounded?: boolean;
+  badges?: string;
+}
 </script>
 
 <script lang="ts" setup>
@@ -38,51 +49,22 @@ import Button from "primevue/button";
 import { computed, PropType } from "vue";
 import { PrimeIcons, PrimeIconsOptions } from "primevue/api";
 
-const emit = defineEmits(["buttonClick"]);
+const emit = defineEmits(EMIT);
 
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-  label: {
-    type: String,
-    required: false,
-  },
-  severity: {
-    type: String as PropType<eSeverity>,
-    default: undefined,
-  },
-  size: {
-    type: String as PropType<eSize>,
-    default: eSize.Normal,
-  },
-  link: {
-    type: String,
-    default: null,
-  },
-  icon: {
-    type: String as PropType<keyof PrimeIconsOptions>,
-    default: undefined,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  rounded: {
-    type: Boolean,
-    default: true,
-  },
-  badges: {
-    type: String,
-    default: null,
-  },
+const props = withDefaults(defineProps<iButtonProps>(), {
+  severity: undefined,
+  size: eSize.Normal,
+  link: undefined,
+  icon: undefined,
+  disabled: false,
+  rounded: true,
+  badges: undefined,
 });
 
 const iconProxy = computed((): string | undefined => {
   if (props.icon) {
-    const iconExist = Object.values(PrimeIcons).indexOf(props.icon);
-    if (iconExist > -1) {
+    const iconIndex = Object.values(PrimeIcons).indexOf(props.icon);
+    if (iconIndex > -1) {
       return props.icon;
     }
     console.warn(`props.icon passed but his value is not a PrimeIcons valid`);
@@ -108,7 +90,7 @@ const sizeProxy = computed((): "small" | "large" | undefined => {
   }
   const sizeExist = Object.values(eSize).indexOf(props.size);
   if (sizeExist > -1) {
-    if(props.size === eSize.Normal) {
+    if (props.size === eSize.Normal) {
       return undefined;
     }
     return props.size as "small" | "large";
