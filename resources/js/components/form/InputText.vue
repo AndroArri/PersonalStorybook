@@ -11,17 +11,13 @@
   </div>
 </template>
 <script lang="ts">
-export enum eInputTextSize {
-  Small = "small",
-  Normal = "normal",
-  Large = "large",
-}
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 
 export interface iInputTextProps {
   id: string;
   invalid?: boolean;
   disabled?: boolean;
-  size?: eInputTextSize;
+  size?: eComponentSize;
 }
 </script>
 
@@ -33,15 +29,15 @@ const textValue = defineModel();
 const props = withDefaults(defineProps<iInputTextProps>(), {
   invalid: false,
   disabled: false,
-  size: eInputTextSize.Normal,
+  size: eComponentSize.Normal,
 });
 
 const sizeProxy = computed(
-  (): eInputTextSize.Small | eInputTextSize.Large | undefined => {
-    if (props.size === eInputTextSize.Normal) {
+  (): eComponentSize.Small | eComponentSize.Large | undefined => {
+    if (props.size === eComponentSize.Normal) {
       return undefined;
     }
-    const indexSize = Object.values(eInputTextSize).indexOf(props.size);
+    const indexSize = Object.values(eComponentSize).indexOf(props.size);
     if (indexSize > -1) {
       return props.size;
     }

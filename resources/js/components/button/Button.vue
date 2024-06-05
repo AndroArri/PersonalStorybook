@@ -15,27 +15,18 @@
 </template>
 
 <script lang="ts">
-export enum eSeverity {
-  Secondary = "secondary",
-  Success = "success",
-  Info = "info",
-  Warning = "warning",
-  Help = "help",
-  Danger = "danger",
-}
+import Button from "primevue/button";
+import { computed } from "vue";
+import { PrimeIcons } from "primevue/api";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 
-export enum eSize {
-  Small = "small",
-  Normal = "normal",
-  Large = "large",
-}
 export const EMIT: string[] = ["ButtonClick"];
 
 export interface iButtonProps {
   id: string;
   label: string;
   severity?: eSeverity;
-  size?: eSize;
+  size?: eComponentSize;
   link?: string;
   icon?: string;
   disabled?: boolean;
@@ -45,15 +36,13 @@ export interface iButtonProps {
 </script>
 
 <script lang="ts" setup>
-import Button from "primevue/button";
-import { computed, PropType } from "vue";
-import { PrimeIcons, PrimeIconsOptions } from "primevue/api";
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum.ts";
 
 const emit = defineEmits(EMIT);
 
 const props = withDefaults(defineProps<iButtonProps>(), {
   severity: undefined,
-  size: eSize.Normal,
+  size: eComponentSize.Normal,
   link: undefined,
   icon: undefined,
   disabled: false,
@@ -88,9 +77,9 @@ const sizeProxy = computed((): "small" | "large" | undefined => {
   if (!props.size) {
     return undefined;
   }
-  const sizeExist = Object.values(eSize).indexOf(props.size);
+  const sizeExist = Object.values(eComponentSize).indexOf(props.size);
   if (sizeExist > -1) {
-    if (props.size === eSize.Normal) {
+    if (props.size === eComponentSize.Normal) {
       return undefined;
     }
     return props.size as "small" | "large";

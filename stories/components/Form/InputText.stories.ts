@@ -1,5 +1,6 @@
 
-import InputText, { eInputTextSize, iInputTextProps } from "@/components/form/InputText.vue";
+import InputText, { iInputTextProps } from "@/components/form/InputText.vue";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 const slotValue = "slotValue";
 const inputTextProps: iInputTextProps = {
     id: "inputswitch",
@@ -14,7 +15,7 @@ export default {
     argTypes: {
         size: {
             control: { type: "select" },
-            options: Object.values(eInputTextSize)
+            options: Object.values(eComponentSize)
         }
     },
     parameters: {

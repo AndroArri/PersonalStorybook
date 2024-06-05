@@ -1,5 +1,7 @@
 import { fn } from "@storybook/test";
-import Button, { eSeverity, eSize, iButtonProps } from "@/components/button/Button.vue"
+import Button, { iButtonProps } from "@/components/button/Button.vue"
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 import { PrimeIcons, PrimeIconsOptions } from "primevue/api";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -9,7 +11,7 @@ export default {
     argTypes: {
         size: {
             control: { type: "select" },
-            options: Object.values(eSize),
+            options: Object.values(eComponentSize),
         },
         severity: {
             control: { type: "select" },

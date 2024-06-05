@@ -39,7 +39,7 @@
               id="login"
               label="sign-in"
               @buttonClick="buttonClick"
-              :size="eSize.Small"
+              :size="eComponentSize.Small"
               class="mr-2"
             ></Button>
             <Button
@@ -47,7 +47,7 @@
               label="Register"
               :severity="eSeverity.Secondary"
               @buttonClick="buttonClick"
-              :size="eSize.Small"
+              :size="eComponentSize.Small"
             ></Button>
           </span>
         </div>
@@ -60,8 +60,10 @@
 import Menubar from "primevue/menubar";
 import Badge from "primevue/badge";
 import { ref } from "vue";
-import Button, { eSize, eSeverity } from "@/components/button/Button.vue";
+import Button from "@/components/button/Button.vue";
 import ProfileMenu from "@/components/menu/ProfileMenu.vue";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
 const props = defineProps({
   user: Object,

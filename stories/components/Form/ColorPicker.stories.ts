@@ -4,8 +4,7 @@ import ColorPicker, { iColorPickerProps } from "@/components/form/ColorPicker.vu
 const slotValue = "slotValue";
 
 const colorpickerProps: iColorPickerProps = {
-    id: "Template",
-    label: "Template"
+    id: "Template"
 }
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {

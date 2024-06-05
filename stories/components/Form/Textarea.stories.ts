@@ -1,8 +1,8 @@
 
-import Textarea, { itextAreaProps } from "@/components/form/Textarea.vue";
+import Textarea, { iTextareaProps } from "@/components/form/Textarea.vue";
 
 const slotValue = "slotValue";
-const textareaProps: itextAreaProps = {
+const textareaProps: iTextareaProps = {
     id: "inputswitch",
 }
 

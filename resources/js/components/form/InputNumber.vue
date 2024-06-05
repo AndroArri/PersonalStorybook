@@ -15,13 +15,9 @@
 </template>
 
 <script lang="ts">
-export enum eInputNumberType {
-  currency = "currency",
-  decimal = "decimal",
-  percent = "percent",
-}
+import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum.ts";
 
-interface InputNumberProxy {
+interface iInputNumberProxy {
   mode?: "currency" | "decimal";
   currency?: string;
   locale?: string;
@@ -47,7 +43,7 @@ const props = withDefaults(defineProps<iInputNumberProps>(), {
   type: eInputNumberType.decimal,
 });
 
-const optionProxy = computed<InputNumberProxy>(() => {
+const optionProxy = computed<iInputNumberProxy>(() => {
   if (props.type === eInputNumberType.currency) {
     return {
       mode: "currency",

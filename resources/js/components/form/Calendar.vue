@@ -16,14 +16,9 @@
 </template>
 
 <script lang="ts">
-export const DATE_FORMAT = "dd/mm/yy";
+import { eCalendarSelectionMode } from "resources/budgetProject/enum/components/CalendarEnum";
 
-export enum eCalendarSelectionMode {
-  Range = "range",
-  Single = "single",
-  Multiple = "multiple",
-}
-
+const DATE_FORMAT = "dd/mm/yy";
 export interface iCalendarProps {
   id: string;
   showIcon?: boolean;

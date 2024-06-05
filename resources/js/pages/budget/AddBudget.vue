@@ -98,32 +98,17 @@ import Layout from "@/layouts/Layout.vue";
 import Card from "@/components/panel/Card.vue";
 import InputText from "@/components/form/InputText.vue";
 import ColorPicker from "@/components/form/ColorPicker.vue";
-import InputNumber, {
-  eInputNumberType,
-} from "@/components/form/InputNumber.vue";
+import InputNumber from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
-import Button, { eSeverity } from "@/components/button/Button.vue";
+import Button from "@/components/button/Button.vue";
 import { ref } from "vue";
 import Dropdown from "@/components/form/Dropdown.vue";
 import Calendar from "@/components/form/Calendar.vue";
-import enumService from "/resources/common/service/EnumService.ts";
-
-enum eBudgetStatus {
-  Attivo = "active",
-  Disattivo = "deactive",
-  Sospeso = "suspended",
-}
-
-export interface BudgetInterfaceDto {
-  name: string;
-  color: string;
-  value: number;
-  type: eInputNumberType;
-  description: string;
-  status: eBudgetStatus;
-  beginAt?: Date;
-  expireAt?: Date;
-}
+import enumService from "resources/common/service/EnumService.ts";
+import BudgetDto from "resources/budgetProject/dto/BudgetDto";
+import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
+import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
 enum valueLabel {
   currency = "Valore monetario (€)",
@@ -139,7 +124,7 @@ const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
 const inputNumberValue = ref<typeof InputNumber>();
 
-const budgetDto = ref<BudgetInterfaceDto>({
+const budgetDto = ref<BudgetDto>({
   name: "",
   color: "",
   value: 0,
