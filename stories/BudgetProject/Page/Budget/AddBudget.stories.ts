@@ -1,4 +1,4 @@
-import addBudget from "/resources/js/pages/budget/AddBudget.vue";
+import addBudget from "@/pages/budget/AddBudget.vue";
 
 export default {
     component: addBudget,

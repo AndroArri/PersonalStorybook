@@ -1,6 +1,5 @@
 
-import InputNumber, { iInputNumberProps, InputNumberType } from "@/components/form/InputNumber.vue";
-import { Template } from "stories/BudgetProject/Page/Budget/AddBudget.stories";
+import InputNumber, { iInputNumberProps, eInputNumberType } from "@/components/form/InputNumber.vue";
 const slotValue = "slotValue";
 const inputNumberProps: iInputNumberProps = {
     id: "dropdown"
@@ -44,7 +43,7 @@ export const Currency = {
     }
 }
 
-Currency.args.type = InputNumberType.currency;
+Currency.args.type = eInputNumberType.currency;
 
 export const percent = {
     args: Object.assign({}, inputNumberProps),
@@ -57,4 +56,4 @@ export const percent = {
     }
 }
 
-percent.args.type = InputNumberType.percent;
+percent.args.type = eInputNumberType.percent;
