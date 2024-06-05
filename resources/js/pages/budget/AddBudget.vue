@@ -1,165 +1,170 @@
 <template>
-    <Layout title="Budget" />
-    <Card>
-        <template #title
-            ><span class="flex justify-center">
-                Inserisci il tuo budget
-            </span></template
+  <Layout title="Budget" />
+  <Card>
+    <template #title
+      ><span class="flex justify-center">
+        Inserisci il tuo budget
+      </span></template
+    >
+    <template #content>
+      <div class="grid grid-cols-4 gap-4">
+        <InputText
+          id="name"
+          :invalid="inputTextNameInvalid"
+          v-model.trim="budgetDto.name"
+          class="col-span-2"
+          required
+          >Nome*</InputText
         >
-        <template #content>
-            <div class="grid grid-cols-2 gap-10">
-                <InputText
-                    :id="BudgetDto.name.id"
-                    label="Nome*"
-                    :invalid="BudgetDto.name.invalid"
-                    v-model="BudgetDto.name.value"
-                ></InputText>
-                <div class="grid justify-items-start">
-                    <ColorPicker
-                        :id="BudgetDto.color.id"
-                        v-model="BudgetDto.color.value"
-                        label="Colore*"
-                    ></ColorPicker>
-                </div>
-                <InputNumber
-                    :id="BudgetDto.value.id"
-                    v-model="BudgetDto.value.value"
-                    :label="BudgetDto.value.label"
-                    :type="typeValue"
-                    :visible="BudgetDto.value.visible"
-                ></InputNumber>
-                <div class="grid justify-items-start">
-                    <InputSwitch
-                        :id="BudgetDto.type.id"
-                        v-model="BudgetDto.type.value"
-                        :invalid="BudgetDto.type.invalid"
-                        @change="changeBudgetValue"
-                    >
-                        {{ BudgetDto.type.label }}
-                    </InputSwitch>
-                </div>
-            </div>
-            <div class="grid grid-cols-4 mt-10 gap-3">
-                <div class="grid justify-content">
-                    <Button
-                        :id="ButtonData.id"
-                        :label="ButtonData.label"
-                        :disabled="ButtonData.disabled"
-                        @buttonClick="ButtonData.onClick()"
-                    ></Button>
-                </div>
-                <div class="grid justify-content">
-                    <Button
-                        :id="ButtonCancel.id"
-                        :label="ButtonCancel.label"
-                        :disabled="ButtonCancel.disabled"
-                        @buttonClick="ButtonCancel.onClick()"
-                        :severity="ButtonCancel.severity"
-                    ></Button>
-                </div>
-            </div>
-        </template>
-    </Card>
+
+        <div class="grid justify-items-start col-span-2">
+          <ColorPicker id="color" v-model="budgetDto.color" required
+            >Colore*</ColorPicker
+          >
+        </div>
+        <InputText
+          id="description"
+          class="col-span-2"
+          v-model.trim="budgetDto.description"
+          >Descrizione</InputText
+        >
+
+        <Dropdown
+          id="statusz"
+          :options="enumService.of(eBudgetStatus).toOptions()"
+          class="col-span-1 col-start-3"
+          v-model="budgetDto.status"
+          required
+          >Stato*</Dropdown
+        >
+
+        <InputNumber
+          ref="inputNumberValue"
+          id="value"
+          class="col-span-2 col-end-3"
+          v-model.number="budgetDto.value"
+          :type="budgetDto.type"
+          >{{ inputNumberValueLabel }}</InputNumber
+        >
+
+        <InputSwitch
+          id="type"
+          @change="changeBudgetType()"
+          class="grid justify-self-start"
+        >
+          {{ inputSwitchTypeLabel }}
+        </InputSwitch>
+
+        <Calendar
+          showIcon
+          id="beginAt"
+          v-model="budgetDto.beginAt"
+          class="col-span-2"
+          >Inizio dal</Calendar
+        >
+        <Calendar
+          showIcon
+          id="expireAt"
+          v-model="budgetDto.expireAt"
+          class="col-span-2"
+          >Fino al</Calendar
+        >
+      </div>
+      <div class="grid grid-cols-4 mt-10 gap-3">
+        <div class="grid justify-content">
+          <Button
+            id="save"
+            label="Salva"
+            :disabled="buttonSaveDisable"
+            @buttonClick="saveBudget()"
+          ></Button>
+        </div>
+        <div class="grid justify-content">
+          <Button
+            id="cancel"
+            label="Cancella"
+            :disabled="buttonCancelDisable"
+            @buttonClick="cancel()"
+            :severity="eSeverity.Secondary"
+          ></Button>
+        </div>
+      </div>
+    </template>
+  </Card>
 </template>
 
 <script lang="ts">
-interface InputInterface {
-    id: string;
-    value: string | number | boolean;
-    label: string;
-    visible?: boolean;
-    invalid?: boolean;
-}
-
-export interface ButtonInterface {
-    id: string;
-    label: string;
-    disabled: boolean;
-    onClick: Function;
-    severity?: eSeverity;
-}
-
-export interface BudgetInterface {
-    id: string;
-    name: InputInterface;
-    color: InputInterface;
-    value: InputInterface;
-    type: InputInterface;
-}
-</script>
-
-<script lang="ts" setup>
-import Layout from "@//layouts/Layout.vue";
+import Layout from "@/layouts/Layout.vue";
 import Card from "@/components/panel/Card.vue";
 import InputText from "@/components/form/InputText.vue";
 import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber, {
-    InputNumberType,
+  eInputNumberType,
 } from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
 import Button, { eSeverity } from "@/components/button/Button.vue";
 import { ref } from "vue";
+import Dropdown from "@/components/form/Dropdown.vue";
+import Calendar from "@/components/form/Calendar.vue";
+import enumService from "/resources/common/service/EnumService.ts";
 
-const BudgetDto = ref<BudgetInterface>({
-    id: "",
-    name: {
-        id: "name",
-        value: "",
-        invalid: false,
-        label: "Nome",
-    },
-    color: {
-        id: "color",
-        value: "",
-        invalid: false,
-        label: "Colore",
-    },
-    value: {
-        id: "value",
-        label: "Valore (€)*",
-        value: 0,
-        invalid: false,
-    },
-    type: {
-        id: "type",
-        value: false,
-        invalid: false,
-        label: "Valore Percentuale",
-    },
+enum eBudgetStatus {
+  Attivo = "active",
+  Disattivo = "deactive",
+  Sospeso = "suspended",
+}
+
+export interface BudgetInterfaceDto {
+  name: string;
+  color: string;
+  value: number;
+  type: eInputNumberType;
+  description: string;
+  status: eBudgetStatus;
+  beginAt?: Date;
+  expireAt?: Date;
+}
+
+enum valueLabel {
+  currency = "Valore monetario (€)",
+  percent = "Valore percentuale (%)",
+}
+</script>
+
+<script lang="ts" setup>
+const inputTextNameInvalid = ref<boolean>(false);
+const buttonSaveDisable = ref<boolean>(false);
+const buttonCancelDisable = ref<boolean>(false);
+const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
+const inputNumberValueLabel = ref<string>(valueLabel.currency);
+const inputNumberValue = ref<typeof InputNumber>();
+
+const budgetDto = ref<BudgetInterfaceDto>({
+  name: "",
+  color: "",
+  value: 0,
+  type: eInputNumberType.currency,
+  description: "",
+  status: eBudgetStatus.Attivo,
+  beginAt: undefined,
+  expireAt: undefined,
 });
 
-const ButtonData = ref<ButtonInterface>({
-    id: "save",
-    label: "Salva",
-    disabled: false,
-    onClick: () => {
-        //TODO Effettuare salvataggio
-        console.log("Salva");
-    },
-});
+function saveBudget(): void {
+  console.log(JSON.stringify(budgetDto.value));
+}
 
-const ButtonCancel: ButtonInterface = {
-    id: "cancel",
-    label: "Cancella",
-    disabled: false,
-    severity: eSeverity.Secondary,
-    onClick: () => {
-        //TODO Effettuare cancellazione
-        console.log("cancella");
-    },
-};
+function cancel(): void {}
 
-const typeValue = ref(InputNumberType.currency);
-
-const changeBudgetValue = () => {
-    if (BudgetDto.value.type.value) {
-        typeValue.value = InputNumberType.percent;
-        BudgetDto.value.value.label = "Valore (%)*";
-        BudgetDto.value.type.label = "Valore monetario";
-    } else {
-        BudgetDto.value.value.label = "Valore (€)*";
-        BudgetDto.value.type.label = "Valore percentuale";
-        typeValue.value = InputNumberType.currency;
-    }
-};
+function changeBudgetType(): void {
+  if (budgetDto.value.type === eInputNumberType.currency) {
+    budgetDto.value.type = eInputNumberType.percent;
+    inputSwitchTypeLabel.value = valueLabel.currency;
+    inputNumberValueLabel.value = valueLabel.percent;
+  } else {
+    budgetDto.value.type = eInputNumberType.currency;
+    inputSwitchTypeLabel.value = valueLabel.percent;
+    inputNumberValueLabel.value = valueLabel.currency;
+  }
+}
 </script>
