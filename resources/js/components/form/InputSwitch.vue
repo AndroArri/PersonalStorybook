@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-2 justify-items-center">
+  <div class="grid grid-cols-1 justify-items-center">
     <label :for="props.id"><slot></slot></label>
       <InputSwitch
         v-model="value"

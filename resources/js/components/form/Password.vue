@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="grid grid-cols-1">
     <label :for="props.id"><slot></slot></label>
     <Password
       v-model="passwordModel"

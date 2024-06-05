@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-cols-1 gap-2">
+  <div class="grid grid-cols-1">
     <label :for="props.id"><slot></slot></label>
     <InputNumber
       :id="props.id"
-      :model="numberValue"
+      v-model="numberValue"
       :minFractionDigits="optionProxy.minFractionDigit"
       :min="optionProxy.min"
       :max="optionProxy.max"
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-export enum InputNumberType {
+export enum eInputNumberType {
   currency = "currency",
   decimal = "decimal",
   percent = "percent",
@@ -33,7 +33,7 @@ interface InputNumberProxy {
 
 export interface iInputNumberProps {
   id: string;
-  type?: InputNumberType;
+  type?: eInputNumberType;
 }
 </script>
 
@@ -44,17 +44,17 @@ import { computed, PropType } from "vue";
 const numberValue = defineModel();
 
 const props = withDefaults(defineProps<iInputNumberProps>(), {
-  type: InputNumberType.decimal,
+  type: eInputNumberType.decimal,
 });
 
 const optionProxy = computed<InputNumberProxy>(() => {
-  if (props.type === InputNumberType.currency) {
+  if (props.type === eInputNumberType.currency) {
     return {
       mode: "currency",
       currency: "EUR",
       minFractionDigit: 2,
     };
-  } else if (props.type === InputNumberType.percent) {
+  } else if (props.type === eInputNumberType.percent) {
     return {
       mode: "decimal",
       suffix: "%",

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-2">
+  <div class="grid grid-cols-1">
     <span :for="props.id"> <slot></slot></span>
     <Checkbox
       v-model="checkboxValue"

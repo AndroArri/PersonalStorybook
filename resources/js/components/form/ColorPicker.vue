@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-2">
+  <div class="grid grid-cols-1">
     <label :for="props.id"><slot></slot></label>
     <div class="grid grid-rows-1">
       <div>
@@ -15,7 +15,6 @@
 <script lang="ts">
 export interface iColorPickerProps {
   id: string;
-  label: string;
 }
 </script>
 
