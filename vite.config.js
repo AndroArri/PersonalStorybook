@@ -7,7 +7,8 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': path.join(__dirname, '/resources/js/')
+            '@': path.join(__dirname, '/resources/js/'),
+            'resources': path.join(__dirname, '/resources/')
         }
     }
 });
