@@ -1,5 +1,5 @@
 export enum eBudgetStatus {
-    Attivo = "active",
-    Disattivo = "deactive",
-    Sospeso = "suspended",
+    ACTIVE = "active",
+    DEACTIVE = "deactive",
+    SUSPENDED = "suspended",
 }

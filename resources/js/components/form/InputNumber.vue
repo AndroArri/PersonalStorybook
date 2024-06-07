@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum.ts";
+import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 
 interface iInputNumberProxy {
   mode?: "currency" | "decimal";
