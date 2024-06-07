@@ -1,4 +1,4 @@
-export default class enumService {
+export default class ObjService {
     static of<T extends object>(e: T) {
         const values = Object.values(e);
         const keys = Object.keys(e);
