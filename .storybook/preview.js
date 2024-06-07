@@ -8,6 +8,9 @@ import Lara from "/resources/js/components/presets/Lara/";
 import "/resources/css/app.css";
 import "primeicons/primeicons.css";
 
+// Toast service
+import ToastService from "primevue/toastservice";
+
 
 setup((app) => {
     app.use(PrimeVue, {
@@ -16,6 +19,7 @@ setup((app) => {
         ripple: true,
     });
     app.directive("ripple", Ripple);
+    app.use(ToastService);
 });
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
