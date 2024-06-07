@@ -9,5 +9,8 @@ export default {
 };
 
 export const Template = {
+    args: {
+        id: 1
+    }
 };
 
