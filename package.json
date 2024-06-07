@@ -15,7 +15,8 @@
     "@storybook/vue3": "^8.1.2",
     "@storybook/vue3-vite": "^8.1.2",
     "@types/node": "^20.12.13",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "dependencies": {
     "@inertiajs/vue3": "^1.1.0",
