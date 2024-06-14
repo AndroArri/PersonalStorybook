@@ -24,7 +24,7 @@ export const EMIT: string[] = ["ButtonClick"];
 
 export interface iButtonProps {
   id: string;
-  label: string;
+  label?: string;
   severity?: eSeverity;
   size?: eComponentSize;
   link?: string;
@@ -36,11 +36,12 @@ export interface iButtonProps {
 </script>
 
 <script lang="ts" setup>
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum.ts";
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
 const emit = defineEmits(EMIT);
 
 const props = withDefaults(defineProps<iButtonProps>(), {
+  label: undefined,
   severity: undefined,
   size: eComponentSize.Normal,
   link: undefined,
