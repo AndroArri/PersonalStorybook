@@ -65,14 +65,16 @@ import ProfileMenu from "@/components/menu/ProfileMenu.vue";
 import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
-const props = defineProps({
-  user: Object,
-  profileImg: String,
-  showButton: {
-    type: Boolean,
-    default: true,
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    user?: Object;
+    profileImg?: string;
+    showButton?: boolean;
+  }>(),
+  {
+    showButton: true,
+  }
+);
 
 const items = ref([
   {
