@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Personal",
+        "description": "This is personal bank account"
+    },
+    {
+        "id": 2,
+        "name": "Common",
+        "description": "This is common bank account"
+    }
+]
