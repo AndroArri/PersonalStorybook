@@ -29,19 +29,20 @@
           v-model.trim="budgetDto.description"
           >Descrizione</InputText
         >
-
         <Dropdown
-          id="statusz"
-          :options="enumService.of(eBudgetStatus).toOptions()"
-          class="col-span-1 col-start-3"
-          v-model="budgetDto.status"
-          required
-          >Stato*</Dropdown
+          id="bankAccounts"
+          class="col-span-2"
+          v-model="budgetDto.bankAccount"
+          :options="
+            BankAccountService.getBankAccountData().then(
+              (data: iBankAccount) => data
+            )
+          "
+          >Account</Dropdown
         >
 
         <InputNumber
           id="value"
-          class="col-span-2 col-end-3"
           v-model.number="budgetDto.value"
           :type="budgetDto.type"
           >{{ inputNumberValueLabel }}</InputNumber
@@ -55,21 +56,31 @@
         >
           {{ inputSwitchTypeLabel }}
         </InputSwitch>
+        <Dropdown
+          id="status"
+          :options="ObjService.of(eBudgetStatus).toOptions()"
+          class="col-span-1 col-start-3"
+          v-model="budgetDto.status"
+          required
+          >Stato*</Dropdown
+        >
 
-        <Calendar
-          showIcon
-          id="beginAt"
-          v-model="budgetDto.beginAt"
-          class="col-span-2"
-          >Inizio dal</Calendar
-        >
-        <Calendar
-          showIcon
-          id="expireAt"
-          v-model="budgetDto.expireAt"
-          class="col-span-2"
-          >Fino al</Calendar
-        >
+        <div class="grid grid-cols-subgrid col-span-4">
+          <Calendar
+            showIcon
+            id="beginAt"
+            v-model="budgetDto.beginAt"
+            class="col-span-2"
+            >Inizio dal</Calendar
+          >
+          <Calendar
+            showIcon
+            id="expireAt"
+            v-model="budgetDto.expireAt"
+            class="col-span-2"
+            >Fino al</Calendar
+          >
+        </div>
       </div>
       <div class="grid grid-cols-4 mt-10 gap-3">
         <div class="grid justify-content">
@@ -89,23 +100,23 @@
 </template>
 
 <script lang="ts">
-import enumService from "resources/common/service/EnumService";
-import Layout from "@/layouts/Layout.vue";
+import ObjService from "resources/common/service/ObjService";
 import Card from "@/components/panel/Card.vue";
 import InputText from "@/components/form/InputText.vue";
 import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
 import Button from "@/components/button/Button.vue";
-import { onMounted, ref } from "vue";
-import Dropdown from "@/components/form/Dropdown.vue";
+import { inject, onMounted, ref } from "vue";
+import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
 import Calendar from "@/components/form/Calendar.vue";
-import BudgetDto from "resources/budgetProject/dto/BudgetDto";
+import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
 import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import BudgetService from "resources/budgetProject/service/budgetService";
 import { useToast } from "primevue/usetoast";
+import { iBankAccount } from "resources/budgetProject/dto/BankAccountDto";
+import BankAccountService from "resources/budgetProject/service/BankAccountService";
 
 enum valueLabel {
   currency = "Valore monetario (€)",
@@ -119,43 +130,33 @@ const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
 const inputSwitchValue = ref<boolean>(false);
 const toast = useToast();
-
-const props = defineProps<{
-  id?: number;
+const bankAccountOptions = ref<iDropdownOptions>();
+  const props = defineProps<{
+  bankAccounts: iBankAccount;
+  budget?: iBudgetDto;
 }>();
 
-const budgetDto = ref<BudgetDto>({
+const budgetDto = ref<iBudgetDto>(props.budget ?? {
+  id: 0,
   name: "",
-  color: "000000",
-  value: 0,
-  type: eInputNumberType.currency,
+  color: "",
   description: "",
-  status: eBudgetStatus.ACTIVE,
+  type: eInputNumberType.currency,
+  value: 0,
+  status: eBudgetStatus.DEACTIVE,
   beginAt: undefined,
   expireAt: undefined,
+  createdAt: undefined,
+  updatedAt: undefined,
+  bankAccount undefined
 });
 
+
 const getInitialData = (): void => {
-  if (props.id) {
-    BudgetService.getSingleBudget(props.id).then((result) => {
-      Object.assign(budgetDto.value, result);
-      if(budgetDto.value.type === eInputNumberType.percent) {
-        inputSwitchValue.value = true;
-      }
-      changeBudgetType();
-    });
-  } else {
-    budgetDto.value = {
-      name: "",
-      color: "000000",
-      value: 0,
-      type: eInputNumberType.currency,
-      description: "",
-      status: eBudgetStatus.ACTIVE,
-      beginAt: undefined,
-      expireAt: undefined,
-    } as BudgetDto;
+  if(props.budget) {
+    Object.assign(budgetDto.value, props.budget);
   }
+
 };
 
 onMounted(() => getInitialData());
@@ -171,8 +172,11 @@ function saveBudget(): void {
     });
     return;
   }
-  BudgetService.newBudgetData(budgetDto.value)
+  const saveBudget:Function= inject('newBudgetData') as Function;
+
+  saveBudget(budgetDto.value)
     .then((result) => {
+      Object.assign(props.budget?, result);
       toast.add({
         severity: "success",
         summary: "Operazione avvenuta con successo",
