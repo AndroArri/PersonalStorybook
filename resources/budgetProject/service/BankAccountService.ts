@@ -1,21 +1,21 @@
 import BankAccountDto, { iBankAccount } from "../dto/BankAccountDto";
-import BankAccountData from "resources/budgetProject/data/BankAccount.json";
-import * as fs from "fs";
+import BankAccountJson from "../data/BankAccount.json";
 
-export default class BankAccountService {
-    private static PATH_DATA_BANK_ACCOUNT = '../data/BankAccount.json';
-    static getBankAccountData(): Promise<iBankAccount[]> {
-        return Promise.resolve(this.parseObjArrayDto(BankAccountData));
+export default function useBankAccountService() {
+    const bankAccountData = parseObjArrayDto(BankAccountJson);
+
+    const getBankAccountData = (): Promise<iBankAccount[]> => {
+        return Promise.resolve(parseObjArrayDto(bankAccountData));
     }
 
-    static getSingleBankAccount(id: number): Promise<iBankAccount> {
-        const singleBankAccount = BankAccountData.find((b) => b.id === id);
-        const result = this.parseObjDto(singleBankAccount);
+    const getSingleBankAccount = (id: number): Promise<iBankAccount> => {
+        const singleBankAccount = bankAccountData.find((b) => b.id === id);
+        const result = parseObjDto(singleBankAccount);
         return Promise.resolve(result);
     }
 
-    static newBankAccountData(bankAccountDto: iBankAccount): Promise<boolean> {
-        BankAccountData.push({
+    const newBankAccountData = (bankAccountDto: iBankAccount): Promise<boolean> => {
+        bankAccountData.push({
             id: Math.random() * 100,
             name: bankAccountDto.name ?? "",
             description: bankAccountDto.description ?? "",
@@ -23,35 +23,44 @@ export default class BankAccountService {
         return Promise.resolve(true);
     }
 
-    static editBankAccountData(bankAccountDto: iBankAccount): Promise<boolean> {
+    const editBankAccountData = (bankAccountDto: iBankAccount): Promise<boolean> => {
         if (!bankAccountDto.id) {
             return Promise.reject(false);
         }
-        Object.bind(BankAccountData.find((b) => b.id === bankAccountDto.id), bankAccountDto);
+        Object.bind(bankAccountData.find((b) => b.id === bankAccountDto.id), bankAccountDto);
         return Promise.resolve(true);
     }
 
-    static deleteBankAccount(bankAccountDto: iBankAccount): Promise<boolean> {
+    const deleteBankAccount = (bankAccountDto: iBankAccount): Promise<boolean> => {
         if (!bankAccountDto.id)
             return Promise.reject(false);
-        const deleteAccount = BankAccountData.splice(BankAccountData.findIndex((b) => b.id === bankAccountDto.id), 1);
+        const deleteAccount = bankAccountData.splice(bankAccountData.findIndex((b) => b.id === bankAccountDto.id), 1);
         if (deleteAccount)
             return Promise.resolve(true);
         return Promise.reject(false);
     }
 
-    private static parseObjArrayDto(dataDto: any): iBankAccount[] {
+    function parseObjArrayDto(dataDto: any): iBankAccount[] {
         return dataDto.map((data: any) => {
-            return this.parseObjDto(data);
+            return parseObjDto(data);
         })
     }
 
-    private static parseObjDto(dataDto: any): iBankAccount {
-        const result = new BankAccountDto({
-            id: dataDto.id,
-            name: dataDto.name,
-            description: dataDto.description,
-        });
+    function parseObjDto(dataDto: any): iBankAccount {
+        const result = new BankAccountDto(
+            dataDto.id,
+            dataDto.name,
+            dataDto.description,
+        );
         return result;
     }
+
+    return {
+        getBankAccountData,
+        getSingleBankAccount,
+        newBankAccountData,
+        editBankAccountData,
+        deleteBankAccount
+    }
 }
+

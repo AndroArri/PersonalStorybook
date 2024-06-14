@@ -1,23 +1,22 @@
 import BudgetDto, { iBudgetDto } from "../dto/BudgetDto";
 import budgetJson from "../data/Budget.json";
-import { eInputNumberType } from "../enum/components/InputNumberEnum";
-import { eBudgetStatus } from "../enum/budget/BudgetEnum";
-import { App } from "vue";
 
-class BudgetService {
-    BudgetData = this.parseObjArrayDto(budgetJson);
+export default function useBudgetService() {
+    const BudgetData = parseObjArrayDto(budgetJson);
 
-    getBudgetData(): Promise<iBudgetDto[]> {
-        return Promise.resolve(this.parseObjArrayDto(this.BudgetData));
+    const getBudgetData = (): Promise<iBudgetDto[]> => {
+        return Promise.resolve(parseObjArrayDto(BudgetData));
     }
 
-    getSingleBudget(id: number): Promise<iBudgetDto> {
-        const singleBudget = this.BudgetData.find((b) => b.id === id);
-        const result = this.parseObjDto(singleBudget);
+    const getSingleBudget = (id: number): Promise<iBudgetDto> => {
+        const singleBudget = BudgetData.find((b) => b.id === id);
+        if (!singleBudget)
+            return Promise.reject("Budget not found");
+        const result = parseObjDto(singleBudget);
         return Promise.resolve(result);
     }
 
-    newBudgetData(budgetDto: iBudgetDto): Promise<iBudgetDto> {
+    const newBudgetData = (budgetDto: iBudgetDto): Promise<iBudgetDto> => {
         const result = {
             id: Math.random() * 100,
             name: budgetDto.name,
@@ -32,47 +31,55 @@ class BudgetService {
             updatedAt: new Date(),
             bankAccount: budgetDto.bankAccount
         } as iBudgetDto;
-        this.BudgetData.push(result);
+        BudgetData.push(result);
         return Promise.resolve(result);
     }
 
-    editBudgetData(budgetDto: iBudgetDto): Promise<boolean> {
+    const editBudgetData = (budgetDto: iBudgetDto): Promise<boolean> => {
         if (!budgetDto.id) {
             return Promise.reject(false);
         }
-        Object.bind(this.BudgetData.find((b) => b.id === budgetDto.id), budgetDto);
+        Object.bind(BudgetData.find((b) => b.id === budgetDto.id), budgetDto);
         return Promise.resolve(true);
     }
 
-    deleteBudgetData(budgetDto: iBudgetDto): Promise<boolean> {
+    const deleteBudgetData = (budgetDto: iBudgetDto): Promise<boolean> => {
         if (!budgetDto.id)
             return Promise.reject(false);
-        const deleteBudget = this.BudgetData.splice(this.BudgetData.findIndex((b) => b.id === budgetDto.id), 1);
+        const deleteBudget = BudgetData.splice(BudgetData.findIndex((b) => b.id === budgetDto.id), 1);
         if (deleteBudget)
             return Promise.resolve(true);
         return Promise.reject(false);
     }
 
-    private parseObjArrayDto(dataDto: any): iBudgetDto[] {
+    function parseObjArrayDto(dataDto: any): iBudgetDto[] {
         return dataDto.map((data: any) => {
-            return this.parseObjDto(data);
+            return parseObjDto(data);
         })
     }
 
-    private parseObjDto(dataDto: any): iBudgetDto {
+    function parseObjDto(dataDto: any): iBudgetDto {
         const result = new BudgetDto(
             dataDto.name,
-            dataDto.color, 
-            dataDto.value, 
-            dataDto.type, 
-            dataDto.status, 
-            dataDto.bankAccount, dataDto.id, dataDto.description, dataDto.beginAt, dataDto.expireAt, dataDto.updatedAt, dataDto.createdAt);
+            dataDto.color,
+            dataDto.value,
+            dataDto.type,
+            dataDto.status,
+            dataDto.bankAccount,
+            dataDto.id,
+            dataDto.description,
+            dataDto.beginAt,
+            dataDto.expireAt,
+            dataDto.updatedAt,
+            dataDto.createdAt);
         return result;
     }
-}
 
-export default {
-    install: (app: App, options: any) => {
-        app.provide('BudgetService', BudgetService);
+    return {
+        getBudgetData,
+        getSingleBudget,
+        newBudgetData,
+        editBudgetData,
+        deleteBudgetData
     }
 }
