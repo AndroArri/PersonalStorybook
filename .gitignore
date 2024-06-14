@@ -1,3 +1,4 @@
 node_modules
 dist
-**/Budget.json
+*.json
+!*.dist.json
