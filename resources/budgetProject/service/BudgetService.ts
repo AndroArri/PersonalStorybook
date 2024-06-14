@@ -1,86 +1,78 @@
-import BudgetDto from "../dto/BudgetDto";
-import BudgetData from "resources/budgetProject/data/Budget.json";
+import BudgetDto, { iBudgetDto } from "../dto/BudgetDto";
+import budgetJson from "../data/Budget.json";
 import { eInputNumberType } from "../enum/components/InputNumberEnum";
 import { eBudgetStatus } from "../enum/budget/BudgetEnum";
-import * as fs from "fs";
+import { App } from "vue";
 
-export default class BudgetService {
-    private static PATH_DATA_BUDGET = '../data/Budget.json';
-    static getBudgetData(): Promise<BudgetDto[]> {
-        return Promise.resolve(this.parseObjArrayDto(BudgetData));
+class BudgetService {
+    BudgetData = this.parseObjArrayDto(budgetJson);
+
+    getBudgetData(): Promise<iBudgetDto[]> {
+        return Promise.resolve(this.parseObjArrayDto(this.BudgetData));
     }
 
-    static getSingleBudget(id: number): Promise<BudgetDto> {
-        const singleBudget = BudgetData.find((b) => b.id === id);
+    getSingleBudget(id: number): Promise<iBudgetDto> {
+        const singleBudget = this.BudgetData.find((b) => b.id === id);
         const result = this.parseObjDto(singleBudget);
         return Promise.resolve(result);
     }
 
-    static newBudgetData(budgetDto: BudgetDto): Promise<boolean> {
-        BudgetData.push({
+    newBudgetData(budgetDto: iBudgetDto): Promise<iBudgetDto> {
+        const result = {
             id: Math.random() * 100,
-            name: budgetDto.name ?? "",
-            color: budgetDto.color ?? "",
-            value: budgetDto.value ?? 0,
-            type: budgetDto.type ?? "0",
-            description: budgetDto.description ?? "",
-            status: budgetDto.status ?? "0",
-            beginAt: budgetDto.beginAt?.toString() ?? "",
-            expireAt: budgetDto.expireAt?.toString() ?? "",
-            created_at: new Date().toISOString(),
-            deleted_at: null,
-            updated_at: new Date().toISOString()
-        });
-        try {
-            fs.writeFileSync(this.PATH_DATA_BUDGET, JSON.stringify(BudgetData), 'utf-8');
-            return Promise.resolve(true);
-        } catch (error) {
-            return Promise.reject(false);
-        }
+            name: budgetDto.name,
+            color: budgetDto.color,
+            value: budgetDto.value,
+            type: budgetDto.type,
+            description: budgetDto.description,
+            status: budgetDto.status,
+            beginAt: budgetDto.beginAt,
+            expireAt: budgetDto.expireAt,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            bankAccount: budgetDto.bankAccount
+        } as iBudgetDto;
+        this.BudgetData.push(result);
+        return Promise.resolve(result);
     }
 
-    static editBudgetData(budgetDto: BudgetDto): Promise<boolean> {
+    editBudgetData(budgetDto: iBudgetDto): Promise<boolean> {
         if (!budgetDto.id) {
             return Promise.reject(false);
         }
-        try {
-            Object.bind(BudgetData.find((b) => b.id === budgetDto.id), budgetDto);
-            fs.writeFileSync(this.PATH_DATA_BUDGET, JSON.stringify(BudgetData), 'utf-8');
-            return Promise.resolve(true);
-        } catch (error) {
-            return Promise.reject(false);
-        }
+        Object.bind(this.BudgetData.find((b) => b.id === budgetDto.id), budgetDto);
+        return Promise.resolve(true);
     }
 
-    static deleteBudgetData(budgetDto: BudgetDto): Promise<boolean> {
+    deleteBudgetData(budgetDto: iBudgetDto): Promise<boolean> {
         if (!budgetDto.id)
             return Promise.reject(false);
-        const deleteBudget = BudgetData.splice(BudgetData.findIndex((b) => b.id === budgetDto.id), 1);
+        const deleteBudget = this.BudgetData.splice(this.BudgetData.findIndex((b) => b.id === budgetDto.id), 1);
         if (deleteBudget)
             return Promise.resolve(true);
         return Promise.reject(false);
     }
 
-    private static parseObjArrayDto(dataDto: any): BudgetDto[] {
+    private parseObjArrayDto(dataDto: any): iBudgetDto[] {
         return dataDto.map((data: any) => {
             return this.parseObjDto(data);
         })
     }
 
-    private static parseObjDto(dataDto: any): BudgetDto {
-        const result = new BudgetDto({
-            id: dataDto.id,
-            name: dataDto.name,
-            color: dataDto.color,
-            value: dataDto.value,
-            type: dataDto.type as eInputNumberType,
-            description: dataDto.description,
-            status: dataDto.status as eBudgetStatus,
-            beginAt: new Date(dataDto.beginAt),
-            expireAt: new Date(dataDto.expireAt)
-        });
+    private parseObjDto(dataDto: any): iBudgetDto {
+        const result = new BudgetDto(
+            dataDto.name,
+            dataDto.color, 
+            dataDto.value, 
+            dataDto.type, 
+            dataDto.status, 
+            dataDto.bankAccount, dataDto.id, dataDto.description, dataDto.beginAt, dataDto.expireAt, dataDto.updatedAt, dataDto.createdAt);
         return result;
     }
+}
 
-
+export default {
+    install: (app: App, options: any) => {
+        app.provide('BudgetService', BudgetService);
+    }
 }
