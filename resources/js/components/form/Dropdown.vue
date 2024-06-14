@@ -22,12 +22,12 @@ enum iDropdownOptionsMap {
 
 export interface iDropdownOptions {
   name: string;
-  value: string;
+  value: string | number;
 }
 
 export interface iDropdownProps {
-  id: string,
-  options: iDropdownOptions[];
+  id: string;
+  options?: iDropdownOptions[];
   filter?: boolean;
   showClear?: boolean;
   invalid?: boolean;
@@ -43,6 +43,6 @@ const props = withDefaults(defineProps<iDropdownProps>(), {
   filter: false,
   showClear: false,
   invalid: false,
-  disabled: false
+  disabled: false,
 });
 </script>

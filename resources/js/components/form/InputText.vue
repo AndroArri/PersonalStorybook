@@ -11,7 +11,9 @@
   </div>
 </template>
 <script lang="ts">
-import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
+import Inputtext from "primevue/inputtext";
+import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { computed } from "vue";
 
 export interface iInputTextProps {
   id: string;
@@ -22,8 +24,6 @@ export interface iInputTextProps {
 </script>
 
 <script setup lang="ts">
-import Inputtext from "primevue/inputtext";
-import { computed } from "vue";
 const textValue = defineModel();
 
 const props = withDefaults(defineProps<iInputTextProps>(), {

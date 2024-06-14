@@ -18,7 +18,8 @@
 import Button from "primevue/button";
 import { computed } from "vue";
 import { PrimeIcons } from "primevue/api";
-import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
+import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
 export const EMIT: string[] = ["ButtonClick"];
 
@@ -36,8 +37,6 @@ export interface iButtonProps {
 </script>
 
 <script lang="ts" setup>
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-
 const emit = defineEmits(EMIT);
 
 const props = withDefaults(defineProps<iButtonProps>(), {
