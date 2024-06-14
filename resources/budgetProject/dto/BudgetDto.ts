@@ -10,7 +10,7 @@ export interface iBudgetDto {
   type: eInputNumberType;
   status: eBudgetStatus;
   description: string | undefined;
-  bankAccount: iBankAccount | undefined;
+  bankAccount: iBankAccount;
   beginAt: Date | undefined;
   expireAt: Date | undefined;
   updatedAt: Date | undefined;
@@ -24,7 +24,7 @@ export default class BudgetDto implements iBudgetDto {
     public value: number,
     public type: eInputNumberType,
     public status: eBudgetStatus,
-    public bankAccount: iBankAccount | undefined,
+    public bankAccount: iBankAccount,
     public id: number | undefined,
     public description: string | undefined,
     public beginAt: Date | undefined,
