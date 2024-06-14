@@ -32,12 +32,8 @@
         <Dropdown
           id="bankAccounts"
           class="col-span-2"
-          v-model="budgetDto.bankAccount"
-          :options="
-            BankAccountService.getBankAccountData().then(
-              (data: iBankAccount) => data
-            )
-          "
+          v-model="budgetDto.bankAccount.id"
+          :options="bankAccountOptions"
           >Account</Dropdown
         >
 
@@ -101,27 +97,48 @@
 
 <script lang="ts">
 import ObjService from "resources/common/service/ObjService";
+import Layout from "@/layouts/Layout.vue";
 import Card from "@/components/panel/Card.vue";
 import InputText from "@/components/form/InputText.vue";
 import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
 import Button from "@/components/button/Button.vue";
-import { inject, onMounted, ref } from "vue";
+import { inject, onMounted, reactive, ref } from "vue";
 import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
 import Calendar from "@/components/form/Calendar.vue";
 import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
 import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
+
+// Import Composables
+import useBankAccountService from "resources/budgetProject/service/BankAccountService";
 import { useToast } from "primevue/usetoast";
-import { iBankAccount } from "resources/budgetProject/dto/BankAccountDto";
-import BankAccountService from "resources/budgetProject/service/BankAccountService";
+import useBudgetService from "resources/budgetProject/service/BudgetService";
 
 enum valueLabel {
   currency = "Valore monetario (€)",
   percent = "Valore percentuale (%)",
 }
+const budgetDtoEmpty = {
+  id: undefined,
+  name: "",
+  color: "",
+  value: 0,
+  type: eInputNumberType.currency,
+  status: eBudgetStatus.ACTIVE,
+  description: undefined,
+  bankAccount: {
+    id: 0,
+    description: "",
+    name: "",
+  },
+  beginAt: undefined,
+  expireAt: undefined,
+  updatedAt: undefined,
+  createdAt: undefined,
+};
 </script>
 
 <script lang="ts" setup>
@@ -129,40 +146,47 @@ const inputTextNameInvalid = ref<boolean>(false);
 const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
 const inputSwitchValue = ref<boolean>(false);
+
+const bankAccountOptions = ref<iDropdownOptions[]>();
+
+const props = defineProps<{ budget?: iBudgetDto }>();
+
+// use composables
+const bankAccountService = useBankAccountService();
+const budgetService = useBudgetService();
 const toast = useToast();
-const bankAccountOptions = ref<iDropdownOptions>();
-  const props = defineProps<{
-  bankAccounts: iBankAccount;
-  budget?: iBudgetDto;
-}>();
 
-const budgetDto = ref<iBudgetDto>(props.budget ?? {
-  id: 0,
-  name: "",
-  color: "",
-  description: "",
-  type: eInputNumberType.currency,
-  value: 0,
-  status: eBudgetStatus.DEACTIVE,
-  beginAt: undefined,
-  expireAt: undefined,
-  createdAt: undefined,
-  updatedAt: undefined,
-  bankAccount undefined
-});
-
+const budgetDto = reactive<iBudgetDto>(budgetDtoEmpty);
 
 const getInitialData = (): void => {
-  if(props.budget) {
-    Object.assign(budgetDto.value, props.budget);
-  }
-
+  bankAccountService.getBankAccountData().then((bankAccountData) => {
+    let options: iDropdownOptions[] = [];
+    if (bankAccountData.length === 0) {
+      toast.add({
+        severity: "error",
+        summary: "Nessun bank account trovato",
+      });
+      return;
+    }
+    bankAccountData.forEach((data) => {
+      options.push({
+        name: data.name,
+        value: data.id.toString(),
+      });
+    });
+    bankAccountOptions.value = options;
+    if (props.budget) {
+      Object.assign(budgetDto, props.budget);
+    } else {
+      Object.assign(budgetDto, budgetDtoEmpty);
+    }
+  });
 };
 
 onMounted(() => getInitialData());
 
 function saveBudget(): void {
-  if (!budgetDto.value.name) {
+  if (!budgetDto.name) {
     inputTextNameInvalid.value = true;
     toast.add({
       severity: "warn",
@@ -172,18 +196,18 @@ function saveBudget(): void {
     });
     return;
   }
-  const saveBudget:Function= inject('newBudgetData') as Function;
 
-  saveBudget(budgetDto.value)
-    .then((result) => {
-      Object.assign(props.budget?, result);
+  budgetService
+    .newBudgetData(budgetDto)
+    .then((result: iBudgetDto) => {
+      Object.assign(budgetDto, result);
       toast.add({
         severity: "success",
         summary: "Operazione avvenuta con successo",
         detail: "Budget salvato correttamente",
       });
     })
-    .catch((error) => {
+    .catch(() => {
       toast.add({
         severity: "error",
         summary: "Errore nel salvataggio",
@@ -193,16 +217,16 @@ function saveBudget(): void {
 }
 
 function cancel(): void {
-  Object.assign(budgetDto, getInitialData());
+  getInitialData();
 }
 
 function changeBudgetType(): void {
   if (inputSwitchValue.value) {
-    budgetDto.value.type = eInputNumberType.percent;
+    budgetDto.type = eInputNumberType.percent;
     inputSwitchTypeLabel.value = valueLabel.currency;
     inputNumberValueLabel.value = valueLabel.percent;
   } else {
-    budgetDto.value.type = eInputNumberType.currency;
+    budgetDto.type = eInputNumberType.currency;
     inputSwitchTypeLabel.value = valueLabel.percent;
     inputNumberValueLabel.value = valueLabel.currency;
   }
