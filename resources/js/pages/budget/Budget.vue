@@ -156,7 +156,7 @@ const inputNumberValueLabel = ref<string>(valueLabel.currency);
 
 const bankAccountOptions = ref<iDropdownOptions[]>();
 
-const budgetDto = ref<iBudgetDto>(props.budget || budgetDtoEmpty);
+const budgetDto = ref<iBudgetDto>(budgetDtoEmpty);
 
 const inputSwitchValue = ref<boolean>(
   budgetDto.value.type === eInputNumberType.currency ? false : true
@@ -184,9 +184,9 @@ const getAsyncData = (): void => {
 
 const getInitialData = () => {
   if (props.budget) {
-    budgetDto.value = props.budget;
+    Object.assign(budgetDto.value, props.budget);
   } else {
-    Object.assign(budgetDto, budgetDtoEmpty);
+    Object.assign(budgetDto.value, budgetDtoEmpty);
   }
   changeBudgetType();
 };
