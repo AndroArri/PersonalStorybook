@@ -135,11 +135,10 @@ const budgetDtoEmpty = {
     name: "",
   },
   beginAt: null,
-  expireAt:null,
+  expireAt: null,
   updatedAt: null,
   createdAt: null,
 };
-
 </script>
 
 <script lang="ts" setup>
@@ -154,11 +153,14 @@ const props = defineProps<{ budget?: iBudgetDto }>();
 const inputTextNameInvalid = ref<boolean>(false);
 const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
-const inputSwitchValue = ref<boolean>(false);
 
 const bankAccountOptions = ref<iDropdownOptions[]>();
 
 const budgetDto = ref<iBudgetDto>(props.budget || budgetDtoEmpty);
+
+const inputSwitchValue = ref<boolean>(
+  budgetDto.value.type === eInputNumberType.currency ? false : true
+);
 
 const getAsyncData = (): void => {
   bankAccountService.getBankAccountData().then((bankAccountData) => {
@@ -186,6 +188,7 @@ const getInitialData = () => {
   } else {
     Object.assign(budgetDto, budgetDtoEmpty);
   }
+  changeBudgetType();
 };
 
 onBeforeMount(() => getAsyncData());
