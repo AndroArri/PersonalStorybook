@@ -23,22 +23,32 @@
             >Colore*</ColorPicker
           >
         </div>
+        <Dropdown
+          id="bankAccounts"
+          class="col-span-2"
+          v-model="budgetDto.bankAccount.id"
+          :options="bankAccountOptions"
+          >Account*</Dropdown
+        >
+        <Dropdown
+          id="status"
+          :options="ObjService.of(eBudgetStatus).toOptions()"
+          class="col-span-1 col-start-3"
+          v-model="budgetDto.status"
+          required
+          >Stato*</Dropdown
+        >
+
         <InputText
           id="description"
           class="col-span-2"
           v-model.trim="budgetDto.description"
           >Descrizione</InputText
         >
-        <Dropdown
-          id="bankAccounts"
-          class="col-span-2"
-          v-model="budgetDto.bankAccount.id"
-          :options="bankAccountOptions"
-          >Account</Dropdown
-        >
 
         <InputNumber
           id="value"
+          class="col-start-1"
           v-model.number="budgetDto.value"
           :type="budgetDto.type"
           >{{ inputNumberValueLabel }}</InputNumber
@@ -52,14 +62,7 @@
         >
           {{ inputSwitchTypeLabel }}
         </InputSwitch>
-        <Dropdown
-          id="status"
-          :options="ObjService.of(eBudgetStatus).toOptions()"
-          class="col-span-1 col-start-3"
-          v-model="budgetDto.status"
-          required
-          >Stato*</Dropdown
-        >
+        
 
         <div class="grid grid-cols-subgrid col-span-4">
           <Calendar
