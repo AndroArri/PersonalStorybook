@@ -35,9 +35,9 @@ export interface iInputNumberProps {
 
 <script lang="ts" setup>
 import InputNumber from "primevue/inputnumber";
-import { computed, PropType } from "vue";
+import { computed, watch } from "vue";
 
-const numberValue = defineModel();
+const numberValue = defineModel<number>();
 
 const props = withDefaults(defineProps<iInputNumberProps>(), {
   type: eInputNumberType.decimal,
@@ -51,9 +51,10 @@ const optionProxy = computed<iInputNumberProxy>(() => {
       minFractionDigit: 2,
     };
   } else if (props.type === eInputNumberType.percent) {
+    verifyValue();
     return {
       mode: "decimal",
-      suffix: "%",
+      suffix: " %",
       minFractionDigit: 2,
       min: 0,
       max: 100,
@@ -64,4 +65,19 @@ const optionProxy = computed<iInputNumberProxy>(() => {
     minFractionDigit: 2,
   };
 });
+
+const verifyValue = (): void => {
+  if (!numberValue.value) {
+    numberValue.value = 0;
+  }
+  if (props.type === eInputNumberType.percent) {
+    if (numberValue.value > 100) {
+      numberValue.value = 100;
+    } else if (numberValue.value < 0) {
+      numberValue.value = 0;
+    }
+  }
+};
+
+watch(numberValue, verifyValue);
 </script>
