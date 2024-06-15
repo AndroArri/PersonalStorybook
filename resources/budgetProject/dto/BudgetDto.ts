@@ -3,18 +3,18 @@ import { eInputNumberType } from "../enum/components/InputNumberEnum";
 import { iBankAccount } from "../dto/BankAccountDto";
 
 export interface iBudgetDto {
-  id: number | undefined,
+  id: number,
   name: string;
   color: string;
   value: number;
   type: eInputNumberType;
   status: eBudgetStatus;
-  description: string | undefined;
+  description: string | null;
   bankAccount: iBankAccount;
-  beginAt: Date | undefined;
-  expireAt: Date | undefined;
-  updatedAt: Date | undefined;
-  createdAt: Date | undefined;
+  beginAt: Date | null;
+  expireAt: Date | null;
+  updatedAt: Date | null;
+  createdAt: Date | null;
 }
 
 export default class BudgetDto implements iBudgetDto {
@@ -25,11 +25,11 @@ export default class BudgetDto implements iBudgetDto {
     public type: eInputNumberType,
     public status: eBudgetStatus,
     public bankAccount: iBankAccount,
-    public id: number | undefined,
-    public description: string | undefined,
-    public beginAt: Date | undefined,
-    public expireAt: Date | undefined,
-    public updatedAt: Date | undefined,
-    public createdAt: Date | undefined
+    public id: number,
+    public description: string | null,
+    public beginAt: Date | null,
+    public expireAt: Date | null,
+    public updatedAt: Date | null,
+    public createdAt: Date | null
   ) { }
 }
