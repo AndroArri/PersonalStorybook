@@ -104,7 +104,7 @@ import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
 import Button from "@/components/button/Button.vue";
-import { inject, onMounted, reactive, ref } from "vue";
+import { onBeforeMount, onMounted, ref } from "vue";
 import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
 import Calendar from "@/components/form/Calendar.vue";
 import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
@@ -122,26 +122,35 @@ enum valueLabel {
   percent = "Valore percentuale (%)",
 }
 const budgetDtoEmpty = {
-  id: undefined,
+  id: 0,
   name: "",
   color: "",
   value: 0,
   type: eInputNumberType.currency,
   status: eBudgetStatus.ACTIVE,
-  description: undefined,
+  description: "",
   bankAccount: {
     id: 0,
     description: "",
     name: "",
   },
-  beginAt: undefined,
-  expireAt: undefined,
-  updatedAt: undefined,
-  createdAt: undefined,
+  beginAt: null,
+  expireAt:null,
+  updatedAt: null,
+  createdAt: null,
 };
+
 </script>
 
 <script lang="ts" setup>
+// use composables
+const bankAccountService = useBankAccountService();
+const budgetService = useBudgetService();
+const toast = useToast();
+
+// Define props
+const props = defineProps<{ budget?: iBudgetDto }>();
+
 const inputTextNameInvalid = ref<boolean>(false);
 const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
@@ -149,16 +158,9 @@ const inputSwitchValue = ref<boolean>(false);
 
 const bankAccountOptions = ref<iDropdownOptions[]>();
 
-const props = defineProps<{ budget?: iBudgetDto }>();
+const budgetDto = ref<iBudgetDto>(props.budget || budgetDtoEmpty);
 
-// use composables
-const bankAccountService = useBankAccountService();
-const budgetService = useBudgetService();
-const toast = useToast();
-
-const budgetDto = reactive<iBudgetDto>(budgetDtoEmpty);
-
-const getInitialData = (): void => {
+const getAsyncData = (): void => {
   bankAccountService.getBankAccountData().then((bankAccountData) => {
     let options: iDropdownOptions[] = [];
     if (bankAccountData.length === 0) {
@@ -171,22 +173,27 @@ const getInitialData = (): void => {
     bankAccountData.forEach((data) => {
       options.push({
         name: data.name,
-        value: data.id.toString(),
+        value: data.id,
       });
     });
     bankAccountOptions.value = options;
-    if (props.budget) {
-      Object.assign(budgetDto, props.budget);
-    } else {
-      Object.assign(budgetDto, budgetDtoEmpty);
-    }
   });
 };
+
+const getInitialData = () => {
+  if (props.budget) {
+    budgetDto.value = props.budget;
+  } else {
+    Object.assign(budgetDto, budgetDtoEmpty);
+  }
+};
+
+onBeforeMount(() => getAsyncData());
 
 onMounted(() => getInitialData());
 
 function saveBudget(): void {
-  if (!budgetDto.name) {
+  if (!budgetDto.value.name) {
     inputTextNameInvalid.value = true;
     toast.add({
       severity: "warn",
@@ -198,9 +205,9 @@ function saveBudget(): void {
   }
 
   budgetService
-    .newBudgetData(budgetDto)
+    .newBudgetData(budgetDto.value)
     .then((result: iBudgetDto) => {
-      Object.assign(budgetDto, result);
+      budgetDto.value = result;
       toast.add({
         severity: "success",
         summary: "Operazione avvenuta con successo",
@@ -222,11 +229,11 @@ function cancel(): void {
 
 function changeBudgetType(): void {
   if (inputSwitchValue.value) {
-    budgetDto.type = eInputNumberType.percent;
+    budgetDto.value.type = eInputNumberType.percent;
     inputSwitchTypeLabel.value = valueLabel.currency;
     inputNumberValueLabel.value = valueLabel.percent;
   } else {
-    budgetDto.type = eInputNumberType.currency;
+    budgetDto.value.type = eInputNumberType.currency;
     inputSwitchTypeLabel.value = valueLabel.percent;
     inputNumberValueLabel.value = valueLabel.currency;
   }
