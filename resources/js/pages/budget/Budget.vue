@@ -62,7 +62,6 @@
         >
           {{ inputSwitchTypeLabel }}
         </InputSwitch>
-        
 
         <div class="grid grid-cols-subgrid col-span-4">
           <Calendar
@@ -124,24 +123,6 @@ enum valueLabel {
   currency = "Valore monetario (€)",
   percent = "Valore percentuale (%)",
 }
-const budgetDtoEmpty = {
-  id: 0,
-  name: "",
-  color: "",
-  value: 0,
-  type: eInputNumberType.currency,
-  status: eBudgetStatus.ACTIVE,
-  description: "",
-  bankAccount: {
-    id: 0,
-    description: "",
-    name: "",
-  },
-  beginAt: null,
-  expireAt: null,
-  updatedAt: null,
-  createdAt: null,
-};
 </script>
 
 <script lang="ts" setup>
@@ -151,7 +132,7 @@ const budgetService = useBudgetService();
 const toast = useToast();
 
 // Define props
-const props = defineProps<{ budget?: iBudgetDto }>();
+const props = defineProps<{ budget: iBudgetDto }>();
 
 const inputTextNameInvalid = ref<boolean>(false);
 const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
@@ -159,7 +140,7 @@ const inputNumberValueLabel = ref<string>(valueLabel.currency);
 
 const bankAccountOptions = ref<iDropdownOptions[]>();
 
-const budgetDto = ref<iBudgetDto>(budgetDtoEmpty);
+const budgetDto = ref<iBudgetDto>(props.budget);
 
 const inputSwitchValue = ref<boolean>(
   budgetDto.value.type === eInputNumberType.currency ? false : true
@@ -186,11 +167,7 @@ const getAsyncData = (): void => {
 };
 
 const getInitialData = () => {
-  if (props.budget) {
-    Object.assign(budgetDto.value, props.budget);
-  } else {
-    Object.assign(budgetDto.value, budgetDtoEmpty);
-  }
+  Object.assign(budgetDto.value, props.budget);
   changeBudgetType();
 };
 

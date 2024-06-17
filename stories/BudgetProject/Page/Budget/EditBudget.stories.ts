@@ -1,7 +1,6 @@
 import Budget from "@/pages/budget/Budget.vue";
 import useBudgetService from "resources/budgetProject/service/BudgetService";
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
 
 const budgetService = useBudgetService();
 
