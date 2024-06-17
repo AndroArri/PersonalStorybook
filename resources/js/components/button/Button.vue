@@ -9,7 +9,7 @@
     :disabled="props.disabled"
     :rounded="props.rounded"
     :badge="props.badges"
-    @click="$emit('buttonClick', props.id)"
+    @click="$emit('click', props.id)"
   >
   </Button>
 </template>
@@ -18,10 +18,8 @@
 import Button from "primevue/button";
 import { computed } from "vue";
 import { PrimeIcons } from "primevue/api";
-import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-
-export const EMIT: string[] = ["ButtonClick"];
 
 export interface iButtonProps {
   id: string;
@@ -37,7 +35,7 @@ export interface iButtonProps {
 </script>
 
 <script lang="ts" setup>
-const emit = defineEmits(EMIT);
+const emit = defineEmits(["click"]);
 
 const props = withDefaults(defineProps<iButtonProps>(), {
   label: undefined,

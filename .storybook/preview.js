@@ -4,7 +4,6 @@ import Ripple from "primevue/ripple";
 import { themes } from "@storybook/theming";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import Lara from "/resources/js/components/presets/Lara/";
-import BudgetService from "/resources/budgetProject/service/BudgetService.ts";
 
 // Import global styles
 import "/resources/css/app.css";
@@ -21,7 +20,6 @@ setup((app) => {
   });
   app.directive("ripple", Ripple);
   app.use(ToastService);
-  app.use(BudgetService);
 });
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {

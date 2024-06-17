@@ -17,26 +17,6 @@ export const Template: Story = {
         setup() {
             return { args };
         },
-        template: '<Budget :budget="budget" />'
-    }),
-    args: {
-        budget: {
-            id: 0,
-            name: "",
-            color: "",
-            value: 0,
-            type: eInputNumberType.currency,
-            status: eBudgetStatus.ACTIVE,
-            description: "",
-            bankAccount: {
-                id: 0,
-                description: "",
-                name: "",
-            },
-            beginAt: null,
-            expireAt: null,
-            updatedAt: null,
-            createdAt: null,
-        }
-    }
+        template: '<Budget v-bind="args" />'
+    })
 }

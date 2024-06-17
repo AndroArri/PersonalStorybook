@@ -1,5 +1,4 @@
 <template>
-  <Layout title="Budget" />
   <Card>
     <template #title
       ><span class="flex justify-center">
@@ -7,19 +6,21 @@
       </span></template
     >
     <template #content>
-      <Toast />
       <div class="grid grid-cols-4 gap-4">
         <InputText
           id="name"
-          :invalid="inputTextNameInvalid"
+          :invalid="formField.name.invalid"
           v-model.trim="budgetDto.name"
           class="col-span-2"
-          @change="inputTextNameInvalid = false"
+          @change="formField.name.invalid = false"
           >Nome*</InputText
         >
 
         <div class="grid justify-items-start col-span-2">
-          <ColorPicker id="color" v-model="budgetDto.color"
+          <ColorPicker
+            id="color"
+            v-model="budgetDto.color"
+            @change="formField.name.invalid = false"
             >Colore*</ColorPicker
           >
         </div>
@@ -28,6 +29,8 @@
           class="col-span-2"
           v-model="budgetDto.bankAccount.id"
           :options="bankAccountOptions"
+          :invalid="formField.account.invalid"
+          @change="formField.account.invalid = false"
           >Account*</Dropdown
         >
         <Dropdown
@@ -35,15 +38,9 @@
           :options="ObjService.of(eBudgetStatus).toOptions()"
           class="col-span-1 col-start-3"
           v-model="budgetDto.status"
-          required
+          :invalid="formField.status.invalid"
+          @focus="formField.status.invalid = false"
           >Stato*</Dropdown
-        >
-
-        <InputText
-          id="description"
-          class="col-span-2"
-          v-model.trim="budgetDto.description"
-          >Descrizione</InputText
         >
 
         <InputNumber
@@ -62,6 +59,13 @@
         >
           {{ inputSwitchTypeLabel }}
         </InputSwitch>
+
+        <InputText
+          id="description"
+          class="col-start-1 col-span-4"
+          v-model.trim="budgetDto.description"
+          >Descrizione</InputText
+        >
 
         <div class="grid grid-cols-subgrid col-span-4">
           <Calendar
@@ -82,13 +86,13 @@
       </div>
       <div class="grid grid-cols-4 mt-10 gap-3">
         <div class="grid justify-content">
-          <Button id="save" label="Salva" @buttonClick="saveBudget()"></Button>
+          <Button id="save" label="Salva" @click="saveBudget()"></Button>
         </div>
         <div class="grid justify-content">
           <Button
             id="cancel"
             label="Cancella"
-            @buttonClick="cancel()"
+            @click="cancel()"
             :severity="eSeverity.Secondary"
           ></Button>
         </div>
@@ -99,14 +103,13 @@
 
 <script lang="ts">
 import ObjService from "resources/common/service/ObjService";
-import Layout from "@/layouts/Layout.vue";
 import Card from "@/components/panel/Card.vue";
 import InputText from "@/components/form/InputText.vue";
 import ColorPicker from "@/components/form/ColorPicker.vue";
 import InputNumber from "@/components/form/InputNumber.vue";
 import InputSwitch from "@/components/form/InputSwitch.vue";
 import Button from "@/components/button/Button.vue";
-import { onBeforeMount, onMounted, ref } from "vue";
+import { onBeforeMount, onMounted, reactive, ref } from "vue";
 import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
 import Calendar from "@/components/form/Calendar.vue";
 import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
@@ -114,15 +117,44 @@ import { eInputNumberType } from "resources/budgetProject/enum/components/InputN
 import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 
+import { useToast } from "primevue/usetoast";
+
 // Import Composables
 import useBankAccountService from "resources/budgetProject/service/BankAccountService";
-import { useToast } from "primevue/usetoast";
 import useBudgetService from "resources/budgetProject/service/BudgetService";
 
 enum valueLabel {
   currency = "Valore monetario (€)",
   percent = "Valore percentuale (%)",
 }
+
+const formField = ref<{
+  name: {
+    invalid: boolean;
+  };
+  color: {
+    invalid: boolean;
+  };
+  account: {
+    invalid: boolean;
+  };
+  status: {
+    invalid: boolean;
+  };
+}>({
+  name: {
+    invalid: false,
+  },
+  color: {
+    invalid: false,
+  },
+  account: {
+    invalid: false,
+  },
+  status: {
+    invalid: false,
+  },
+});
 </script>
 
 <script lang="ts" setup>
@@ -132,15 +164,59 @@ const budgetService = useBudgetService();
 const toast = useToast();
 
 // Define props
-const props = defineProps<{ budget: iBudgetDto }>();
+const props = defineProps<{ budget?: iBudgetDto }>();
 
-const inputTextNameInvalid = ref<boolean>(false);
 const inputSwitchTypeLabel = ref<string>(valueLabel.percent);
 const inputNumberValueLabel = ref<string>(valueLabel.currency);
 
 const bankAccountOptions = ref<iDropdownOptions[]>();
 
-const budgetDto = ref<iBudgetDto>(props.budget);
+const defaultBudgetDto = ref<iBudgetDto>({
+  id: 0,
+  name: "",
+  color: "",
+  value: 0,
+  type: eInputNumberType.currency,
+  status: eBudgetStatus.ACTIVE,
+  description: "",
+  bankAccount: {
+    id: 0,
+    description: "",
+    name: "",
+  },
+  beginAt: null,
+  expireAt: null,
+  updatedAt: null,
+  createdAt: null,
+});
+
+const budgetDto = ref<iBudgetDto>({
+  id: 0,
+  name: "",
+  color: "",
+  value: 0,
+  type: eInputNumberType.currency,
+  status: eBudgetStatus.ACTIVE,
+  description: "",
+  bankAccount: {
+    id: 0,
+    description: "",
+    name: "",
+  },
+  beginAt: null,
+  expireAt: null,
+  updatedAt: null,
+  createdAt: null,
+});
+
+const fieldError = ref<string[]>([]);
+
+const emit = defineEmits([
+  "bankAccountsNotFound",
+  "fieldInvalid",
+  "saveSuccess",
+  "saveError",
+]);
 
 const inputSwitchValue = ref<boolean>(
   budgetDto.value.type === eInputNumberType.currency ? false : true
@@ -150,10 +226,7 @@ const getAsyncData = (): void => {
   bankAccountService.getBankAccountData().then((bankAccountData) => {
     let options: iDropdownOptions[] = [];
     if (bankAccountData.length === 0) {
-      toast.add({
-        severity: "error",
-        summary: "Nessun bank account trovato",
-      });
+      emit("bankAccountsNotFound");
       return;
     }
     bankAccountData.forEach((data) => {
@@ -167,7 +240,7 @@ const getAsyncData = (): void => {
 };
 
 const getInitialData = () => {
-  Object.assign(budgetDto.value, props.budget);
+  Object.assign(budgetDto.value, props.budget ?? defaultBudgetDto.value);
   changeBudgetType();
 };
 
@@ -176,13 +249,30 @@ onBeforeMount(() => getAsyncData());
 onMounted(() => getInitialData());
 
 function saveBudget(): void {
+  fieldError.value = [];
   if (!budgetDto.value.name) {
-    inputTextNameInvalid.value = true;
+    formField.value.name.invalid = true;
+    fieldError.value.push("name");
+  }
+  if (!budgetDto.value.color) {
+    formField.value.color.invalid = true;
+    fieldError.value.push("color");
+  }
+  if (!budgetDto.value.bankAccount.id) {
+    formField.value.account.invalid = true;
+    fieldError.value.push("bankAccount");
+  }
+  if (!budgetDto.value.status) {
+    formField.value.status.invalid = true;
+    fieldError.value.push("status");
+  }
+
+  if (fieldError.value.length > 0) {
+    emit("fieldInvalid", fieldError);
     toast.add({
-      severity: "warn",
-      summary: "Campo nome invalido",
-      detail: "Il campo NOME non è valorizzato",
-      life: 3000,
+      severity: "error",
+      summary: "I campi inseriti non sono validi.",
+      detail: `I seguenti campi non sono validi ${fieldError.value.toString()}`,
     });
     return;
   }
@@ -191,17 +281,17 @@ function saveBudget(): void {
     .newBudgetData(budgetDto.value)
     .then((result: iBudgetDto) => {
       budgetDto.value = result;
+      emit("saveSuccess");
       toast.add({
         severity: "success",
-        summary: "Operazione avvenuta con successo",
-        detail: "Budget salvato correttamente",
+        summary: "Salvataggio avvenuto correttamente!",
       });
     })
     .catch(() => {
+      emit("saveError");
       toast.add({
         severity: "error",
-        summary: "Errore nel salvataggio",
-        detail: "Il salvataggio del budget è andato in errore",
+        summary: "Errore durante il salvataggio del budget",
       });
     });
 }
