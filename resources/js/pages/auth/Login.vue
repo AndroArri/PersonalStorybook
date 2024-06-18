@@ -3,7 +3,7 @@
     <div class="grid col-span-4 col-start-4">
       <Card
         ><template #title
-          ><span v-if="props.pageType !== ePageType.Login"
+          ><span v-if="props.pageType === ePageType.Login"
             >Benvenuto nel login</span
           >
           <span v-else>Inserisci la tua mail per registrarti!</span></template
@@ -12,7 +12,7 @@
           <Password
             id="password"
             v-model="pwd"
-            v-if="props.pageType !== ePageType.Login"
+            v-if="props.pageType === ePageType.Login"
             >Password</Password
           >
           <Checkbox
@@ -64,7 +64,7 @@ const logIn = () => {
   });
 };
 
-const props = withDefaults(defineProps<{ pageType: ePageType }>(), {
+const props = withDefaults(defineProps<{ pageType?: ePageType }>(), {
   pageType: ePageType.Login,
 });
 

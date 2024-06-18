@@ -10,12 +10,12 @@ export default {
 
 export const Register = {
     args:{
-        type: ePageType.Register
+        pageType: ePageType.Register
     }
 };
 
 export const LogIn = {
     args:{
-        type: ePageType.Login
+        pageType: ePageType.Login
     }
 };
