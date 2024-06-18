@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-1">
-    <span :for="props.id"> <slot></slot></span>
+  <div :class="Proxy">
+    <label :for="props.id" :class="labelClass"> <slot></slot></label>
     <Checkbox
       v-model="checkboxValue"
       :inputId="props.id"
@@ -9,14 +9,45 @@
   </div>
 </template>
 <script lang="ts">
+export enum ePositionLabel {
+  Left,
+  Top,
+  Right,
+}
+
 export interface iCheckboxProps {
   id: string;
+  positionLabel?: ePositionLabel;
 }
 </script>
 <script lang="ts" setup>
 import Checkbox from "primevue/checkbox";
+import { computed } from "vue";
 
-const props = defineProps<iCheckboxProps>();
+const props = withDefaults(defineProps<iCheckboxProps>(), {
+  positionLabel: ePositionLabel.Top,
+});
 
 const checkboxValue = defineModel();
+
+const Proxy = computed(() => {
+  switch (props.positionLabel) {
+    case ePositionLabel.Left:
+    case ePositionLabel.Right:
+      return "flex items-center";
+    default:
+      return "flex flex-col items-start";
+  }
+});
+
+const labelClass = computed(() => {
+  switch (props.positionLabel) {
+    case ePositionLabel.Left:
+      return "mr-2";
+    case ePositionLabel.Right:
+      return "order-2 ml-2";
+    default:
+      return "mb-2";
+  }
+});
 </script>
