@@ -1,4 +1,4 @@
-import Login from "/resources/js/pages/auth/Login.vue";
+import Login, { ePageType } from "@/pages/auth/Login.vue";
 
 export default {
     component: Login,
@@ -10,12 +10,12 @@ export default {
 
 export const Register = {
     args:{
-        type: 1
+        type: ePageType.Register
     }
 };
 
 export const LogIn = {
     args:{
-        type: 0
+        type: ePageType.Login
     }
 };
