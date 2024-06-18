@@ -1,9 +1,10 @@
 
-import Checkbox, { iCheckboxProps } from "@/components/form/Checkbox.vue";
+import Checkbox, { ePositionLabel, iCheckboxProps } from "@/components/form/Checkbox.vue";
 
 let slotValue = "slotValue";
 const checkboxProps: iCheckboxProps = {
-  id: "Template"
+  id: "Template",
+  positionLabel: ePositionLabel.Top
 };
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -26,9 +27,7 @@ export default {
 export const Default = {
   parameters: {
     slots: {
-      default: {
-        template: "Default"
-      }
+      default: checkboxProps
     }
   }
 };
