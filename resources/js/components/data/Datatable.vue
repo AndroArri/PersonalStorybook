@@ -1,7 +1,7 @@
 <template>
   <DataTable>
     <Column
-      v-for="col of props.columns"
+      v-for="col of props.data.columns"
       :key="col.field"
       :field="col.field"
       :header="col.header"
@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts">
-export interface iColumnsDatatable {
+export interface iColumns {
   key: string;
   field: string;
   header: string;
 }
 
-export interface iDatatableProps {
-  columns: iColumnsDatatable[];
+export interface iDatatable {
+  columns: iColumns[];
   id: string;
   data: Object;
 }
@@ -27,5 +27,7 @@ export interface iDatatableProps {
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 
-const props = defineProps<iDatatableProps>();
+const props = defineProps<{
+  data: iDatatable;
+}>();
 </script>
