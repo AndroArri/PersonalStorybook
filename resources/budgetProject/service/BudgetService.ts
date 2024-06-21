@@ -5,11 +5,11 @@ export default function useBudgetService() {
     const BudgetData = parseObjArrayDto(budgetJson);
 
     const getBudgetData = (): Promise<iBudgetDto[]> => {
-        return Promise.resolve(parseObjArrayDto(BudgetData));
+        return Promise.resolve(BudgetData);
     }
 
     const getSingleBudget = (id: number): Promise<iBudgetDto> => {
-        const singleBudget = BudgetData.find((b) => b.id === id);
+        const singleBudget = BudgetData.find((b) => b.id == id);
         if (!singleBudget)
             return Promise.reject("Budget not found");
         const result = parseObjDto(singleBudget);
