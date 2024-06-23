@@ -10,12 +10,14 @@
       :options="props.options"
       :optionLabel="iDropdownOptionsMap.Name"
       :optionValue="iDropdownOptionsMap.Value"
-    ></Dropdown>
+      :placeholder="props.placeholder"
+    >
+    </Dropdown>
   </div>
 </template>
 
 <script lang="ts">
-enum iDropdownOptionsMap {
+export enum iDropdownOptionsMap {
   Name = "name",
   Value = "value",
 }
@@ -32,6 +34,7 @@ export interface iDropdownProps {
   showClear?: boolean;
   invalid?: boolean;
   disabled?: boolean;
+  placeholder?: string;
 }
 </script>
 
@@ -44,5 +47,6 @@ const props = withDefaults(defineProps<iDropdownProps>(), {
   showClear: false,
   invalid: false,
   disabled: false,
+  placeholder: undefined
 });
 </script>
