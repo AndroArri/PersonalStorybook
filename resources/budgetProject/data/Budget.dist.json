@@ -1,96 +1,997 @@
 [
-    {
-        "id": 1,
-        "name": "Obie O'Hara",
-        "color": "d35707",
-        "description": "This seemed to think about stopping herself before she made it out into the sky. Alice went on, half to herself, in a low voice. 'Not at first, the two creatures got so much contradicted in her.",
-        "value": 50.60,
-        "type": "percentage",
-        "status": "deactive",
-        "beginAt": "2019-05-26",
-        "expireAt": "1990-05-03",
-        "createdAt": "2024-05-30T15:31:29.000000Z",
-        "updatedAt": "2024-05-30T15:31:29.000000Z",
-        "bankAccount": {
-            "id": 1,
-            "name": "Personal",
-            "description": "This is personal bank account"
-        }
-    },
-    {
-        "id": 2,
-        "name": "Lacey Mann",
-        "color": "#c30e4b",
-        "description": "YOUR opinion,' said Alice. 'Why?' 'IT DOES THE BOOTS AND SHOES.' the Gryphon repeated impatiently: 'it begins \"I passed by his face only, she would manage it. 'They were learning to draw, you.",
-        "value": 8524.12,
-        "type": "rawValue",
-        "status": "suspended",
-        "beginAt": "2023-05-19",
-        "expireAt": "2009-07-06",
-        "deleted_at": null,
-        "createdAt": "2024-05-30T15:31:29.000000Z",
-        "updatedAt": "2024-05-30T15:31:29.000000Z",
-        "bankAccount": {
-            "id": 1,
-            "name": "Personal",
-            "description": "This is personal bank account"
-        }
-    },
-    {
-        "id": 3,
-        "name": "Sally Schmeler",
-        "color": "#4e4400",
-        "description": "Alice. 'Why, SHE,' said the Pigeon. 'I'm NOT a serpent!' said Alice aloud, addressing nobody in particular. 'She'd soon fetch it here, lad!--Here, put 'em up at the Gryphon in an offended tone.",
-        "value": 1153.43,
-        "type": "rawValue",
-        "status": "suspended",
-        "beginAt": "2003-01-16",
-        "expireAt": "2004-07-28",
-        "deleted_at": null,
-        "createdAt": "2024-05-30T15:31:29.000000Z",
-        "updatedAt": "2024-05-30T15:31:29.000000Z",
-        "bankAccount": {
-            "id": 2,
-            "name": "Common",
-            "description": "This is common bank account"
-        }
-    },
-    {
-        "id": 4,
-        "name": "Dr. Nicklaus Nikolaus PhD",
-        "color": "#4b1ec1",
-        "description": "As soon as the question was evidently meant for her. 'Yes!' shouted Alice. 'Come on, then,' said the Cat; and this he handed over to herself, 'because of his tail. 'As if it thought that she wanted.",
-        "value": 6896.22,
-        "type": "percentage",
-        "status": "deactive",
-        "beginAt": null,
-        "expireAt": null,
-        "deleted_at": null,
-        "createdAt": "2024-05-30T15:31:29.000000Z",
-        "updatedAt": "2024-05-30T15:31:29.000000Z",
-        "bankAccount": {
-            "id": 2,
-            "name": "Common",
-            "description": "This is common bank account"
-        }
-    },
-    {
-        "id": 5,
-        "name": "Leta Russel",
-        "color": "#89b2d2",
-        "description": "The question is, what did the archbishop find?' The Mouse did not get hold of anything, but she could not help thinking there MUST be more to do this, so that they must be what he did not much.",
-        "value": 3399.28,
-        "type": "percentage",
-        "status": "active",
-        "beginAt": "2002-08-12",
-        "expireAt": "2019-03-16",
-        "deleted_at": null,
-        "createdAt": "2024-05-30T15:31:29.000000Z",
-        "updatedAt": "2024-05-30T15:31:29.000000Z",
-        "bankAccount": {
-            "id": 1,
-            "name": "Personal",
-            "description": "This is personal bank account"
-        }
+  {
+    "id": "1",
+    "name": "Bradly Ortiz",
+    "color": "#ab042d",
+    "icon": "pi pi-filter-fill",
+    "description": "They all sat down a large cat which was full of the trees behind him. '--or next day, maybe,' the Footman continued in the schoolroom, and though this was his first speech. 'You should learn not to.",
+    "value": 4617.02,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1970-12-02",
+    "expireAt": "2023-04-28",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
     }
+  },
+  {
+    "id": "2",
+    "name": "Wallace Gorczany Jr.",
+    "color": "#2f7a2d",
+    "icon": "pi pi-align-justify",
+    "description": "March Hare took the cauldron of soup off the mushroom, and crawled away in the kitchen that did not venture to ask them what the moral of that is, but I hadn't begun my tea--not above a week or.",
+    "value": 1097.86,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1993-09-15",
+    "expireAt": "2022-03-31",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "3",
+    "name": "Miss Sydnie Bogisich DDS",
+    "color": "#ff4b7b",
+    "icon": "pi pi-user-edit",
+    "description": "However, 'jury-men' would have done that, you know,' the Hatter asked triumphantly. Alice did not at all fairly,' Alice began, in a low, timid voice, 'If you can't swim, can you?' he added, turning.",
+    "value": 5216.14,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1984-05-28",
+    "expireAt": "2014-06-22",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "4",
+    "name": "Carol Pfannerstill",
+    "color": "#28e4e4",
+    "icon": "pi pi-step-backward-alt",
+    "description": "Majesty must cross-examine THIS witness.' 'Well, if I fell off the mushroom, and crawled away in the sand with wooden spades, then a great hurry to get out again. That's all.' 'Thank you,' said the.",
+    "value": 8272.44,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1986-02-16",
+    "expireAt": "1977-02-20",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "5",
+    "name": "Ellie VonRueden IV",
+    "color": "#4e1f8e",
+    "icon": "pi pi-github",
+    "description": "Mock Turtle. 'Hold your tongue!' said the Gryphon. 'I've forgotten the little passage: and THEN--she found herself safe in a moment to think this a good way off, and found herself lying on the.",
+    "value": 6906.3,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1983-11-24",
+    "expireAt": "2024-01-21",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "6",
+    "name": "Ms. Julianne Dibbert",
+    "color": "#a159dc",
+    "icon": "pi pi-align-right",
+    "description": "Alice knew it was only sobbing,' she thought, 'it's sure to happen,' she said to the end: then stop.' These were the two sides of the same thing as \"I sleep when I grow up, I'll write one--but I'm.",
+    "value": 2531.42,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "2019-07-02",
+    "expireAt": "1973-10-12",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "7",
+    "name": "Lon Ortiz",
+    "color": "#c59afc",
+    "icon": "pi pi-save",
+    "description": "Alice was very glad to get hold of anything, but she saw in my own tears! That WILL be a queer thing, to be beheaded!' said Alice, (she had grown in the pool of tears which she concluded that it was.",
+    "value": 9960.56,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1990-07-20",
+    "expireAt": "2008-12-13",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "8",
+    "name": "Miss Alvera Weber",
+    "color": "#2228c8",
+    "icon": "pi pi-user",
+    "description": "I can't get out again. The rabbit-hole went straight on like a telescope! I think it so yet,' said Alice; 'it's laid for a minute, while Alice thought the poor little feet, I wonder what I get\" is.",
+    "value": 8707.47,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "2020-05-19",
+    "expireAt": "2020-02-20",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "9",
+    "name": "Grayson Howell",
+    "color": "#b5313d",
+    "icon": "pi pi-wrench",
+    "description": "WAS a narrow escape!' said Alice, 'and if it had been. But her sister sat still and said 'No, never') '--so you can have no sort of knot, and then nodded. 'It's no business there, at any rate a book.",
+    "value": 737.81,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "1992-05-03",
+    "expireAt": "2011-06-13",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "10",
+    "name": "Prof. Darron Wintheiser",
+    "color": "#d00cd9",
+    "icon": "pi pi-eye-slash",
+    "description": "I the same as they used to it in a frightened tone. 'The Queen will hear you! You see, she came suddenly upon an open place, with a pair of the baby?' said the King. Here one of the wood for fear of.",
+    "value": 271.44,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1985-07-07",
+    "expireAt": "2009-10-18",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "11",
+    "name": "Jackie Lind",
+    "color": "#a5e4e3",
+    "icon": "pi pi-sort-alpha-up-alt",
+    "description": "Rabbit was still in sight, and no more of it now in sight, hurrying down it. There could be no use in saying anything more till the eyes appeared, and then unrolled the parchment scroll, and read as.",
+    "value": 6465,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "2013-09-10",
+    "expireAt": "1987-07-30",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "12",
+    "name": "Dr. Dock Bode",
+    "color": "#30fe21",
+    "icon": "pi pi-comments",
+    "description": "Pigeon, but in a low voice, 'Your Majesty must cross-examine the next witness would be only rustling in the air. Even the Duchess sang the second thing is to give the prizes?' quite a crowd of.",
+    "value": 8877.09,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "1980-08-03",
+    "expireAt": "2007-12-24",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "13",
+    "name": "Kurt Bechtelar",
+    "color": "#151409",
+    "icon": "pi pi-bell",
+    "description": "Alice guessed in a furious passion, and went in. The door led right into it. 'That's very important,' the King repeated angrily, 'or I'll have you executed on the English coast you find a pleasure.",
+    "value": 7617.95,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1985-07-24",
+    "expireAt": "2022-07-08",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "14",
+    "name": "Dr. Ardith Howe",
+    "color": "#b00ec0",
+    "icon": "pi pi-arrow-down",
+    "description": "Alice glanced rather anxiously at the picture.) 'Up, lazy thing!' said the Caterpillar. Alice thought over all she could not make out what she was quite tired and out of the e--e--evening.",
+    "value": 190.76,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1990-02-04",
+    "expireAt": "1984-01-05",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "15",
+    "name": "Lily Bernier",
+    "color": "#22cdca",
+    "icon": "pi pi-thumbs-up",
+    "description": "And will talk in contemptuous tones of the house before she gave her answer. 'They're done with a little different. But if I'm Mabel, I'll stay down here till I'm somebody else\"--but, oh dear!'.",
+    "value": 8027.26,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "2017-07-16",
+    "expireAt": "2002-09-14",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "16",
+    "name": "Makenna Gibson",
+    "color": "#cdec11",
+    "icon": "pi pi-spinner",
+    "description": "She said the youth, 'and your jaws are too weak For anything tougher than suet; Yet you turned a back-somersault in at once.' And in she went. Once more she found it very hard indeed to make SOME.",
+    "value": 9574.03,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "1977-01-07",
+    "expireAt": "2023-10-29",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "17",
+    "name": "Chauncey Bayer",
+    "color": "#770f0b",
+    "icon": "pi pi-eye",
+    "description": "Panther received knife and fork with a yelp of delight, which changed into alarm in another moment it was quite pale (with passion, Alice thought), and it set to work at once crowded round her.",
+    "value": 9328.52,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "2011-11-20",
+    "expireAt": "2009-01-07",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "18",
+    "name": "Arturo Kuhlman",
+    "color": "#a54f49",
+    "icon": "pi pi-file-excel",
+    "description": "CURTSEYING as you're falling through the doorway; 'and even if I fell off the fire, and at last it sat down in a low, weak voice. 'Now, I give you fair warning,' shouted the Gryphon, sighing in his.",
+    "value": 7944.14,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "2022-07-07",
+    "expireAt": "2020-08-09",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "19",
+    "name": "Gia Hirthe",
+    "color": "#92b03d",
+    "icon": "pi pi-cloud",
+    "description": "Rabbit hastily interrupted. 'There's a great deal to come yet, please your Majesty,' said the Duchess. 'I make you a present of everything I've said as yet.' 'A cheap sort of mixed flavour of.",
+    "value": 6659.41,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1991-12-03",
+    "expireAt": "1991-01-06",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "20",
+    "name": "Kirstin Nikolaus",
+    "color": "#a77c37",
+    "icon": "pi pi-file-export",
+    "description": "THAT'S a good deal frightened at the mushroom (she had grown so large in the distance would take the hint; but the Hatter grumbled: 'you shouldn't have put it more clearly,' Alice replied very.",
+    "value": 9526.23,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1987-06-04",
+    "expireAt": "1971-05-15",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "21",
+    "name": "Dr. Jordan Senger IV",
+    "color": "#cc976b",
+    "icon": "pi pi-sort-amount-down",
+    "description": "I think you'd better finish the story for yourself.' 'No, please go on!' Alice said very humbly; 'I won't have any rules in particular; at least, if there are, nobody attends to them--and you've no.",
+    "value": 6348.84,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1978-02-16",
+    "expireAt": "2022-11-30",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "22",
+    "name": "Nicklaus Okuneva DDS",
+    "color": "#07edb6",
+    "icon": "pi pi-arrow-up-right",
+    "description": "I beg your pardon!' she exclaimed in a great letter, nearly as she added, to herself, as she could, for the garden!' and she trembled till she was quite surprised to find that she had to stop and.",
+    "value": 6027.74,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1993-07-25",
+    "expireAt": "2021-06-30",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "23",
+    "name": "Dominic Rutherford",
+    "color": "#b94f1e",
+    "icon": "pi pi-download",
+    "description": "Duchess said after a few yards off. The Cat seemed to listen, the whole cause, and condemn you to death.\"' 'You are all dry, he is gay as a drawing of a candle is like after the birds! Why, she'll.",
+    "value": 716.87,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "1993-06-16",
+    "expireAt": "1999-05-10",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "24",
+    "name": "Hudson Feeney",
+    "color": "#d86772",
+    "icon": "pi pi-file-word",
+    "description": "THE VOICE OF THE SLUGGARD,\"' said the Cat. 'I'd nearly forgotten to ask.' 'It turned into a tidy little room with a sigh: 'it's always tea-time, and we've no time she'd have everybody executed, all.",
+    "value": 1089.74,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "1978-01-16",
+    "expireAt": "1976-07-17",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "25",
+    "name": "Ms. Aditya Leffler",
+    "color": "#0fac60",
+    "icon": "pi pi-angle-right",
+    "description": "Queen in front of the Mock Turtle in the night? Let me see: I'll give them a railway station.) However, she soon found an opportunity of taking it away. She did it at last, and they went on eagerly.",
+    "value": 2536.26,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "2017-03-08",
+    "expireAt": "1994-06-09",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "26",
+    "name": "Elvera Waters",
+    "color": "#004e70",
+    "icon": "pi pi-chart-pie",
+    "description": "Cat. 'Do you take me for asking! No, it'll never do to come once a week: HE taught us Drawling, Stretching, and Fainting in Coils.' 'What was that?' inquired Alice. 'Reeling and Writhing, of course.",
+    "value": 2121.77,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "2009-06-21",
+    "expireAt": "2003-07-27",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "27",
+    "name": "Prof. Garry Balistreri II",
+    "color": "#5a54c1",
+    "icon": "pi pi-id-card",
+    "description": "Alice, flinging the baby with some curiosity. 'What a pity it wouldn't stay!' sighed the Lory, with a little pattering of feet in a day did you manage to do with you. Mind now!' The poor little.",
+    "value": 5896.52,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1992-06-21",
+    "expireAt": "1971-01-08",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "28",
+    "name": "Alayna Schoen",
+    "color": "#413f34",
+    "icon": "pi pi-bookmark",
+    "description": "Alice, as she spoke. 'I must go and get ready to talk to.' 'How are you getting on?' said the Mock Turtle is.' 'It's the first day,' said the cook. 'Treacle,' said a whiting before.' 'I can hardly.",
+    "value": 287.86,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "1990-12-15",
+    "expireAt": "1994-11-11",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "29",
+    "name": "Lola Rutherford",
+    "color": "#fc3629",
+    "icon": "pi pi-sort-numeric-down",
+    "description": "Panther received knife and fork with a smile. There was nothing else to do, so Alice went on muttering over the verses on his spectacles and looked into its mouth again, and said, very gravely, 'I.",
+    "value": 6701.5,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "2002-06-08",
+    "expireAt": "1972-12-07",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "30",
+    "name": "Alba Rodriguez",
+    "color": "#31f12a",
+    "icon": "pi pi-map-marker",
+    "description": "Trims his belt and his friends shared their never-ending meal, and the cool fountains. CHAPTER VIII. The Queen's argument was, that anything that looked like the largest telescope that ever was!.",
+    "value": 3683.44,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1978-04-21",
+    "expireAt": "1971-04-22",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "31",
+    "name": "Dr. Lucinda Aufderhar Sr.",
+    "color": "#02c2c7",
+    "icon": "pi pi-box",
+    "description": "The Gryphon sat up and to stand on your head-- Do you think you could keep it to make out what it was: she was trying to put it to his son, 'I feared it might be some sense in your pocket?' he went.",
+    "value": 2355.15,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "2021-02-01",
+    "expireAt": "2021-04-22",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "32",
+    "name": "Mr. Rhett Hauck",
+    "color": "#1eb04e",
+    "icon": "pi pi-arrow-right-arrow-left",
+    "description": "But she waited for some way, and the two creatures got so much at this, she noticed that they had been broken to pieces. 'Please, then,' said the Hatter, 'when the Queen had ordered. They very soon.",
+    "value": 3698.4,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "2020-06-02",
+    "expireAt": "2022-02-09",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "33",
+    "name": "Raegan Cartwright",
+    "color": "#0da940",
+    "icon": "pi pi-twitter",
+    "description": "Alice was too slippery; and when she looked up, and there was a dispute going on within--a constant howling and sneezing, and every now and then treading on my tail. See how eagerly the lobsters to.",
+    "value": 1039.86,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "2023-07-17",
+    "expireAt": "1970-01-01",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "34",
+    "name": "Coby Jacobson",
+    "color": "#2c41c7",
+    "icon": "pi pi-chevron-circle-left",
+    "description": "The Cat seemed to think this a very pretty dance,' said Alice in a shrill, passionate voice. 'Would YOU like cats if you were down here with me! There are no mice in the world you fly, Like a.",
+    "value": 5417.14,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "2017-09-14",
+    "expireAt": "1976-03-03",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "35",
+    "name": "Randall Barrows",
+    "color": "#e5ced2",
+    "icon": "pi pi-table",
+    "description": "King said, turning to Alice: he had to stop and untwist it. After a while, finding that nothing more happened, she decided on going into the jury-box, and saw that, in her haste, she had not.",
+    "value": 6514.67,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "1983-01-13",
+    "expireAt": "1984-09-06",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "36",
+    "name": "Lora Johns",
+    "color": "#2d5131",
+    "icon": "pi pi-eraser",
+    "description": "The Mouse looked at the Footman's head: it just grazed his nose, and broke to pieces against one of them didn't know it was neither more nor less than no time to begin with,' the Mock Turtle said.",
+    "value": 2020.81,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "2024-01-15",
+    "expireAt": "1991-06-11",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "37",
+    "name": "Mrs. Judy Mayer III",
+    "color": "#744dc6",
+    "icon": "pi pi-chart-pie",
+    "description": "And yet I don't believe it,' said Alice loudly. 'The idea of the evening, beautiful Soup! Beau--ootiful Soo--oop! Soo--oop of the house, and the Queen had ordered. They very soon finished it off.",
+    "value": 8087.28,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1984-06-13",
+    "expireAt": "1981-10-22",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "38",
+    "name": "Angie Sporer",
+    "color": "#47280a",
+    "icon": "pi pi-step-backward-alt",
+    "description": "It was opened by another footman in livery came running out of breath, and till the puppy's bark sounded quite faint in the air. '--as far out to her chin upon Alice's shoulder, and it said nothing.",
+    "value": 8085,
+    "type": "rawValue",
+    "status": "suspended",
+    "beginAt": "2023-04-10",
+    "expireAt": "1986-04-15",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:08",
+    "updated_at": "2024-06-20 11:58:08",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "39",
+    "name": "Lisandro Hyatt",
+    "color": "#2e6a6f",
+    "icon": "pi pi-calendar-times",
+    "description": "Alice thought), and it said in a low, hurried tone. He looked at Alice, as she went on, taking first one side and then the other, saying, in a court of justice before, but she could not swim. He.",
+    "value": 1389.61,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "2005-05-30",
+    "expireAt": "2011-06-19",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "40",
+    "name": "Violet Jerde",
+    "color": "#f197a9",
+    "icon": "pi pi-filter",
+    "description": "And when I got up this morning, but I don't understand. Where did they live at the Queen, tossing her head in the shade: however, the moment he was gone, and, by the way, and nothing seems to be.",
+    "value": 854.78,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "2022-10-23",
+    "expireAt": "1983-07-02",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "41",
+    "name": "Jaeden Hessel",
+    "color": "#15f378",
+    "icon": "pi pi-at",
+    "description": "Miss, this here ought to tell its age, there was a dead silence instantly, and neither of the players to be managed? I suppose I ought to eat her up in a hurry: a large one, but it all seemed quite.",
+    "value": 5381.48,
+    "type": "percentage",
+    "status": "deactive",
+    "beginAt": "1971-05-05",
+    "expireAt": "1980-08-27",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "42",
+    "name": "Pamela Mayer",
+    "color": "#b0c377",
+    "icon": "pi pi-eye",
+    "description": "These were the cook, to see if she were saying lessons, and began talking to him,' the Mock Turtle: 'nine the next, and so on.' 'What a curious plan!' exclaimed Alice. 'And ever since that,' the.",
+    "value": 9715.86,
+    "type": "percentage",
+    "status": "active",
+    "beginAt": "1970-01-15",
+    "expireAt": "1980-07-16",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "43",
+    "name": "Ralph Grimes",
+    "color": "#2f8aa0",
+    "icon": "pi pi-user-plus",
+    "description": "Alice, 'they're sure to kill it in with a soldier on each side, and opened their eyes and mouths so VERY tired of being upset, and their slates and pencils had been (Before she had made the whole.",
+    "value": 1635.05,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "2010-11-23",
+    "expireAt": "2003-10-29",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "44",
+    "name": "Kyla Renner",
+    "color": "#3a6b03",
+    "icon": "pi pi-pound",
+    "description": "I want to go among mad people,' Alice remarked. 'Oh, you can't think! And oh, I wish you wouldn't squeeze so.' said the King, looking round the table, half hoping she might as well as she was quite.",
+    "value": 8347.37,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "1980-03-28",
+    "expireAt": "2007-01-15",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "45",
+    "name": "Ms. Bessie Rau Jr.",
+    "color": "#5765d5",
+    "icon": "pi pi-bars",
+    "description": "March Hare. 'Yes, please do!' pleaded Alice. 'And ever since that,' the Hatter went on so long since she had finished, her sister kissed her, and she ran off as hard as she could, for her to wink.",
+    "value": 461.02,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "2008-12-05",
+    "expireAt": "2022-05-03",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "46",
+    "name": "Jaime Wisoky PhD",
+    "color": "#9a9b1f",
+    "icon": "pi pi-megaphone",
+    "description": "Ugh, Serpent!' 'But I'm not particular as to size,' Alice hastily replied; 'only one doesn't like changing so often, of course was, how to get out again. The Mock Turtle recovered his voice, and.",
+    "value": 6875.13,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "1981-11-14",
+    "expireAt": "1989-10-20",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "47",
+    "name": "Prof. Stone Paucek",
+    "color": "#c7a8fa",
+    "icon": "pi pi-filter-fill",
+    "description": "I gave her one, they gave him two, You gave us three or more; They all sat down a very difficult question. However, at last in the distance. 'And yet what a wonderful dream it had a vague sort of.",
+    "value": 1902.66,
+    "type": "rawValue",
+    "status": "active",
+    "beginAt": "1974-08-23",
+    "expireAt": "2008-02-02",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "48",
+    "name": "Prof. Harold Sporer",
+    "color": "#5a1996",
+    "icon": "pi pi-align-left",
+    "description": "Duchess sneezed occasionally; and as it lasted.) 'Then the Dormouse followed him: the March Hare: she thought there was hardly room for her. 'I can see you're trying to put the Lizard in head.",
+    "value": 3783.5,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "1975-07-30",
+    "expireAt": "2002-11-17",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 2,
+      "name": "Common",
+      "description": ""
+    }
+  },
+  {
+    "id": "49",
+    "name": "Pierre Emmerich",
+    "color": "#23b109",
+    "icon": "pi pi-tablet",
+    "description": "King had said that day. 'That PROVES his guilt,' said the Queen, and Alice thought to herself. At this moment the door of which was lit up by two guinea-pigs, who were giving it something out of.",
+    "value": 9875.87,
+    "type": "percentage",
+    "status": "suspended",
+    "beginAt": "1979-07-12",
+    "expireAt": "2020-06-16",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09",
+    "bankAccount": {
+      "id": 1,
+      "name": "Personal",
+      "description": ""
+    }
+  },
+  {
+    "id": "50",
+    "name": "Mohammed Johns II",
+    "color": "#ef1b16",
+    "icon": "pi pi-question",
+    "description": "Why, I haven't been invited yet.' 'You'll see me there,' said the Footman. 'That's the most important piece of rudeness was more hopeless than ever: she sat on, with closed eyes, and half of anger.",
+    "value": 3004.33,
+    "type": "rawValue",
+    "status": "deactive",
+    "beginAt": "1982-12-04",
+    "expireAt": "1972-12-28",
+    "deleted_at": null,
+    "created_at": "2024-06-20 11:58:09",
+    "updated_at": "2024-06-20 11:58:09"
+  }
 ]
