@@ -13,12 +13,12 @@ export default meta;
 type Story = StoryObj<typeof ListBudget>;
 
 export const Template: Story = {
-    render: (args, { loaded: { budget } }) => ({
+    render: (args, { loaded: { allBudget } }) => ({
         components: { ListBudget },
         setup() {
-            return { args, budget: budget };
+            return { args, allBudget: allBudget };
         },
-        template: '<Budget :budget="budget" />'
+        template: '<ListBudget :budget="allBudget" />'
     }),
     loaders: [
         async () => ({
@@ -26,7 +26,3 @@ export const Template: Story = {
         })
     ]
 }
-
-
-
-
