@@ -15,6 +15,8 @@
     "@storybook/vue3": "^8.1.2",
     "@storybook/vue3-vite": "^8.1.2",
     "@types/node": "^20.12.13",
+    "msw": "^2.3.1",
+    "msw-storybook-addon": "^2.0.2",
     "tailwindcss": "^3.4.3",
     "vite-plugin-node-polyfills": "^0.22.0"
   },
@@ -24,6 +26,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "storybook": "^8.1.4",
