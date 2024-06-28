@@ -1,16 +1,19 @@
 import PrimeVue from "primevue/config";
-import { setup } from "@storybook/vue3";
+import { Preview, setup } from "@storybook/vue3";
 import Ripple from "primevue/ripple";
 import { themes } from "@storybook/theming";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import Lara from "/resources/js/components/presets/Lara/";
+import Lara from "../resources/js/components/presets/Lara/index";
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 // Import global styles
 import "/resources/css/app.css";
 import "primeicons/primeicons.css";
-
+// Import composable
 // Toast service
 import ToastService from "primevue/toastservice";
+// Initialize MSW
+initialize();
 
 setup((app) => {
   app.use(PrimeVue, {
@@ -21,8 +24,8 @@ setup((app) => {
   app.directive("ripple", Ripple);
   app.use(ToastService);
 });
-/** @type { import('@storybook/vue3').Preview } */
-const preview = {
+
+const preview: Preview = {
   parameters: {
     // Override the default dark theme
     dark: { ...themes.dark, appBg: "black" },
@@ -35,6 +38,7 @@ const preview = {
       },
     },
   },
+  loaders: [mswLoader]
 };
 
 export const decorators = [
