@@ -6,7 +6,7 @@
       </span></template
     >
     <template #content>
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-cols-5 gap-4">
         <InputText
           id="name"
           :invalid="formField.name.invalid"
@@ -15,15 +15,18 @@
           @change="formField.name.invalid = false"
           >Nome*</InputText
         >
-
-        <div class="grid justify-items-start col-span-2">
-          <ColorPicker
-            id="color"
-            v-model="budgetDto.color"
-            @change="formField.name.invalid = false"
-            >Colore*</ColorPicker
-          >
+        <div class="grid grid-cols-3 col-span-3">
+          <div class="grid justify-items-start">
+            <ColorPicker
+              id="color"
+              v-model="budgetDto.color"
+              @change="formField.name.invalid = false"
+              >Colore*</ColorPicker
+            >
+          </div>
+          <IconPicker class="col-span-2" id="iconPicker">Icona*</IconPicker>
         </div>
+
         <Dropdown
           id="bankAccounts"
           class="col-span-2"
@@ -31,7 +34,7 @@
           :options="bankAccountOptions"
           :invalid="formField.account.invalid"
           @change="formField.account.invalid = false"
-          >Account*</Dropdown
+          >Conto bancario*</Dropdown
         >
         <Dropdown
           id="status"
@@ -116,7 +119,7 @@ import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
 import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-
+import IconPicker from "@/components/form/IconPicker.vue";
 import { useToast } from "primevue/usetoast";
 
 // Import Composables
@@ -179,6 +182,7 @@ const defaultBudgetDto = ref<iBudgetDto>({
   type: eInputNumberType.currency,
   status: eBudgetStatus.ACTIVE,
   description: "",
+  icon: "",
   bankAccount: {
     id: 0,
     description: "",
@@ -198,6 +202,7 @@ const budgetDto = ref<iBudgetDto>({
   type: eInputNumberType.currency,
   status: eBudgetStatus.ACTIVE,
   description: "",
+  icon: "",
   bankAccount: {
     id: 0,
     description: "",
@@ -222,29 +227,12 @@ const inputSwitchValue = ref<boolean>(
   budgetDto.value.type === eInputNumberType.currency ? false : true
 );
 
-const getAsyncData = (): void => {
-  bankAccountService.getBankAccountData().then((bankAccountData) => {
-    let options: iDropdownOptions[] = [];
-    if (bankAccountData.length === 0) {
-      emit("bankAccountsNotFound");
-      return;
-    }
-    bankAccountData.forEach((data) => {
-      options.push({
-        name: data.name,
-        value: data.id,
-      });
-    });
-    bankAccountOptions.value = options;
-  });
-};
 
 const getInitialData = () => {
   Object.assign(budgetDto.value, props.budget ?? defaultBudgetDto.value);
   changeBudgetType();
 };
 
-onBeforeMount(() => getAsyncData());
 
 onMounted(() => getInitialData());
 
