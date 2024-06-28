@@ -1,5 +1,5 @@
 <template>
-  <div :class="Proxy">
+  <div :class="proxy">
     <label :for="props.id" :class="labelClass"> <slot></slot></label>
     <Checkbox
       v-model="checkboxValue"
@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<iCheckboxProps>(), {
 
 const checkboxValue = defineModel();
 
-const Proxy = computed(() => {
+const proxy = computed(() => {
   switch (props.positionLabel) {
     case ePositionLabel.Left:
     case ePositionLabel.Right:
