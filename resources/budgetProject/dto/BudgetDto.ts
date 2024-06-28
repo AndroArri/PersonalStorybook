@@ -8,6 +8,7 @@ export interface iBudgetDto {
   color: string;
   value: number;
   type: eInputNumberType;
+  icon: string;
   status: eBudgetStatus;
   description: string | null;
   bankAccount: iBankAccount;
@@ -25,6 +26,7 @@ export default class BudgetDto implements iBudgetDto {
     public type: eInputNumberType,
     public status: eBudgetStatus,
     public bankAccount: iBankAccount,
+    public icon: string,
     public id: number,
     public description: string | null,
     public beginAt: Date | null,
