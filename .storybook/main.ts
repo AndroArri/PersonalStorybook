@@ -21,6 +21,8 @@ const config: StorybookConfig = {
   typescript: {
     check: false,
     skipCompiler: false
-  }
+  },
+  docs: {},
+  staticDirs: ['../public', '../assets', '../src']
 };
 export default config;
