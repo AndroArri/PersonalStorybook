@@ -6,6 +6,7 @@ export default class ObjService {
         return {
             next: <K extends keyof T>(v: T[K]): string | number => values[(values.indexOf(v) + 1) % values.length],
             current: <K extends keyof T>(v: T[K]): string | number => values[(values.indexOf(v))],
+            currentKey: <K extends keyof T>(v: T[K]): string => keys[(values.indexOf(v))],
             toOptions: (
                 keyToName?: string,
                 keyToValue?: string
