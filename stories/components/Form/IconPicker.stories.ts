@@ -23,7 +23,7 @@ export const Template: Story = {
     parameters: {
         slots: {
             default: {
-                template: "Default"
+                template: "Template"
             }
         }
     }
