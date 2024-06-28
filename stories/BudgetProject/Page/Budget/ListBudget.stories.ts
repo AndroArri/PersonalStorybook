@@ -1,11 +1,14 @@
 import ListBudget from "@/pages/budget/ListBudget.vue";
-import useBudgetService from "resources/budgetProject/service/BudgetService";
 import type { Meta, StoryObj } from "@storybook/vue3";
-
-const budgetService = useBudgetService();
+import { budgetRoute } from "src/mocks/budgetMocks";
 
 const meta: Meta<typeof ListBudget> = {
-    component: ListBudget
+    component: ListBudget,
+    parameters: {
+        msw: {
+            handlers: budgetRoute
+        }
+    }
 };
 
 export default meta;
@@ -20,9 +23,5 @@ export const Template: Story = {
         },
         template: '<ListBudget :budget="allBudget" />'
     }),
-    loaders: [
-        async () => ({
-            allBudget: await budgetService.getBudgetData(),
-        })
-    ]
+
 }
