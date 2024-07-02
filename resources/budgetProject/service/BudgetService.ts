@@ -1,11 +1,17 @@
 import BudgetDto, { iBudgetDto } from "../dto/BudgetDto";
-import budgetJson from "../data/Budget.json";
+import budgetJson from "../../../assets/data/Budget.json";
+import axios from "axios";
+import { RouteList } from "src/mocks/budgetMocks";
 
 export default function useBudgetService() {
     const BudgetData = parseObjArrayDto(budgetJson);
 
-    const getBudgetData = (): Promise<iBudgetDto[]> => {
-        return Promise.resolve(BudgetData);
+    const getBudgetData = async (): Promise<iBudgetDto[]> => {
+        debugger;
+        let allBudget = await axios.get(RouteList.allBudget);
+        allBudget = JSON.parse(allBudget.data);
+        const data = parseObjArrayDto(allBudget);
+        return parseObjArrayDto(data);
     }
 
     const getSingleBudget = (id: number): Promise<iBudgetDto> => {
@@ -27,8 +33,8 @@ export default function useBudgetService() {
             status: budgetDto.status,
             beginAt: budgetDto.beginAt,
             expireAt: budgetDto.expireAt,
-            createdAt: new Date(),
-            updatedAt: new Date(),
+            created_at: new Date(),
+            updated_at: new Date(),
             bankAccount: budgetDto.bankAccount
         } as iBudgetDto;
         BudgetData.push(result);
@@ -66,12 +72,14 @@ export default function useBudgetService() {
             dataDto.type,
             dataDto.status,
             dataDto.bankAccount,
+            dataDto.icon,
             dataDto.id,
             dataDto.description,
             dataDto.beginAt,
             dataDto.expireAt,
             dataDto.updatedAt,
-            dataDto.createdAt);
+            dataDto.createdAt
+        );
         return result;
     }
 
@@ -80,6 +88,8 @@ export default function useBudgetService() {
         getSingleBudget,
         newBudgetData,
         editBudgetData,
-        deleteBudgetData
+        deleteBudgetData,
+        parseObjArrayDto,
+        parseObjDto
     }
 }

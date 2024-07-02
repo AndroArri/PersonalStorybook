@@ -190,8 +190,8 @@ const defaultBudgetDto = ref<iBudgetDto>({
   },
   beginAt: null,
   expireAt: null,
-  updatedAt: null,
-  createdAt: null,
+  updated_at: null,
+  created_at: null,
 });
 
 const budgetDto = ref<iBudgetDto>({
@@ -210,8 +210,8 @@ const budgetDto = ref<iBudgetDto>({
   },
   beginAt: null,
   expireAt: null,
-  updatedAt: null,
-  createdAt: null,
+  updated_at: null,
+  created_at: null,
 });
 
 const fieldError = ref<string[]>([]);

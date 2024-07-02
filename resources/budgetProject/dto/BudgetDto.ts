@@ -14,8 +14,8 @@ export interface iBudgetDto {
   bankAccount: iBankAccount;
   beginAt: Date | null;
   expireAt: Date | null;
-  updatedAt: Date | null;
-  createdAt: Date | null;
+  updated_at: Date | null;
+  created_at: Date | null;
 }
 
 export default class BudgetDto implements iBudgetDto {
@@ -31,7 +31,7 @@ export default class BudgetDto implements iBudgetDto {
     public description: string | null,
     public beginAt: Date | null,
     public expireAt: Date | null,
-    public updatedAt: Date | null,
-    public createdAt: Date | null
+    public updated_at: Date | null,
+    public created_at: Date | null
   ) { }
 }

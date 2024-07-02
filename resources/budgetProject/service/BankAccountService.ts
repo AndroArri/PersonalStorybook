@@ -1,5 +1,5 @@
 import BankAccountDto, { iBankAccount } from "../dto/BankAccountDto";
-import BankAccountJson from "../data/BankAccount.json";
+import BankAccountJson from "../../../assets/data/BankAccount.json";
 
 export default function useBankAccountService() {
     const bankAccountData = parseObjArrayDto(BankAccountJson);
