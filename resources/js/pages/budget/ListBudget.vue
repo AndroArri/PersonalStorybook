@@ -72,7 +72,6 @@ const columns: iColumns[] = [
 
 onMounted(() => {
   loading.value = true; 
-  debugger;
   budgetService.getBudgetData()
   .then((result: iBudgetDto[]) => {
     dataDatatable.value = result;
