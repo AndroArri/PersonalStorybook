@@ -6,8 +6,8 @@ export default function useBudgetService() {
     const BudgetData = parseObjArrayDto(budgetJson);
 
     const getBudgetData = async (): Promise<iBudgetDto[]> => {
-        debugger;
-        let allBudget = await axios.get(RouteList.allBudget);
+        let allBudget = await fetch(RouteList.allBudget)
+            .then((data) => data.json());
         allBudget = JSON.parse(allBudget.data);
         const data = parseObjArrayDto(allBudget);
         return parseObjArrayDto(data);
