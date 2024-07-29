@@ -1,5 +1,5 @@
 import BudgetDto, { iBudgetDto } from "../dto/BudgetDto";
-import budgetJson from "assets/data/budget.json";
+import budgetJson from "assets/data/Budget.json";
 import { RouteList } from "src/mocks/budgetMocks";
 
 export default function useBudgetService() {
