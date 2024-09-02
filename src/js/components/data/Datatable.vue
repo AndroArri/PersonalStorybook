@@ -12,7 +12,6 @@
     :rowsPerPageOptions="props.rowsFilter ?? DEFUALTROWSFILTER"
     :paginator="paginator"
     :lazy="lazy"
-    :pt="pt"
     @page="$emit('page')"
     @sort="$emit('sort')"
     @filter="$emit('filter')"
@@ -40,8 +39,7 @@ const DEFUALTROWSFILTER = [10, 20, 50, 100];
 <script setup lang="ts">
 import DataTable, { DataTablePassThroughOptions } from "primevue/datatable";
 import Column from "primevue/column";
-import { PrimeIcons } from "primevue/api";
-import { PassThrough } from "primevue/ts-helpers";
+import { PrimeIcons } from "@primevue/core/api";
 
 const emits = defineEmits(["page", "sort", "filter"]);
 
@@ -66,7 +64,4 @@ const props = withDefaults(
   }
 );
 
-const pt: PassThrough<DataTablePassThroughOptions> = {
-  emptyMessage: props.emptyMessage,
-};
 </script>

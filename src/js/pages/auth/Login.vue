@@ -8,20 +8,25 @@
           >
           <span v-else>Inserisci la tua mail per registrarti!</span></template
         ><template #content>
-          <InputText id="username" v-model="username">Username</InputText>
-          <Password
-            id="password"
-            v-model="pwd"
-            v-if="props.pageType === ePageType.Login"
-            >Password</Password
-          >
-          <Checkbox
-            id="rememberme"
-            v-model="rememberMe"
-            class="mt-2"
-            :positionLabel="ePositionLabel.Right"
-            >remember me</Checkbox
-          >
+          <div v-if="props.pageType === ePageType.Login">
+            <InputText id="username" v-model="username">Username</InputText>
+            <Password id="password" v-model="pwd">Password</Password>
+            <Checkbox
+              id="rememberme"
+              v-model="rememberMe"
+              class="mt-2"
+              :positionLabel="ePositionLabel.Right"
+              >remember me</Checkbox
+            >
+          </div>
+          <div v-else>
+            <InputText
+              v-if="props.pageType === ePageType.Register"
+              id="email"
+              v-model="email"
+              >Email</InputText
+            >
+          </div>
           <div class="grid justify-content mt-4">
             <Button
               id="login"
@@ -35,11 +40,11 @@
 </template>
 
 <script lang="ts">
-import Card from "@/components/panel/Card.vue";
-import InputText from "@/components/form/InputText.vue";
-import Button from "@/components/button/Button.vue";
-import Checkbox, { ePositionLabel } from "@/components/form/Checkbox.vue";
-import Password from "@/components/form/Password.vue";
+import Card from "src/js/components/panel/Card.vue";
+import InputText from "src/js/components/form/InputText.vue";
+import Button from "src/js/components/button/Button.vue";
+import Checkbox, { ePositionLabel } from "src/js/components/form/Checkbox.vue";
+import Password from "src/js/components/form/Password.vue";
 import { ref, computed } from "vue";
 
 export enum ePageType {
@@ -51,29 +56,23 @@ export enum ePageType {
 <script setup lang="ts">
 const username = ref(null);
 const pwd = ref(null);
-// If want to check the checkbox, use ref ["idCheckbox"].
-const rememberMe = ref(["rememberme"]);
+const email = ref(null);
+const rememberMe = ref(null);
 
 const emit = defineEmits(["login"]);
 
 const logIn = () => {
   emit("login", {
+    pageType: props.pageType,
+    email: email.value,
     username: username.value,
     password: pwd.value,
-    rememberme: proxyRememberme,
+    rememberme: rememberMe.value,
   });
 };
 
 const props = withDefaults(defineProps<{ pageType?: ePageType }>(), {
   pageType: ePageType.Login,
-});
-
-const proxyRememberme = computed(() => {
-  if (rememberMe.value.length > 0) {
-    return true;
-  } else {
-    return false;
-  }
 });
 </script>
 

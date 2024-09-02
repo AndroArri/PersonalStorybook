@@ -105,26 +105,26 @@
 </template>
 
 <script lang="ts">
-import ObjService from "resources/common/service/ObjService";
-import Card from "@/components/panel/Card.vue";
-import InputText from "@/components/form/InputText.vue";
-import ColorPicker from "@/components/form/ColorPicker.vue";
-import InputNumber from "@/components/form/InputNumber.vue";
-import InputSwitch from "@/components/form/InputSwitch.vue";
-import Button from "@/components/button/Button.vue";
+import ObjService from "src/common/service/ObjService";
+import Card from "src/js/components/panel/Card.vue";
+import InputText from "src/js/components/form/InputText.vue";
+import ColorPicker from "src/js/components/form/ColorPicker.vue";
+import InputNumber from "src/js/components/form/InputNumber.vue";
+import InputSwitch from "src/js/components/form/InputSwitch.vue";
+import Button from "src/js/components/button/Button.vue";
 import { onBeforeMount, onMounted, reactive, ref } from "vue";
-import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
-import Calendar from "@/components/form/Calendar.vue";
-import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
-import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
-import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import IconPicker from "@/components/form/IconPicker.vue";
+import Dropdown, { iDropdownOptions } from "src/js/components/form/Dropdown.vue";
+import Calendar from "src/js/components/form/Calendar.vue";
+import { iBudgetDto } from "src/budgetProject/dto/BudgetDto";
+import { eInputNumberType } from "src/budgetProject/enum/components/InputNumberEnum";
+import { eBudgetStatus } from "src/budgetProject/enum/budget/BudgetEnum";
+import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
+import IconPicker from "src/js/components/form/IconPicker.vue";
 import { useToast } from "primevue/usetoast";
 
 // Import Composables
-import useBankAccountService from "resources/budgetProject/service/BankAccountService";
-import useBudgetService from "resources/budgetProject/service/BudgetService";
+import useBankAccountService from "src/budgetProject/service/BankAccountService";
+import useBudgetService from "src/budgetProject/service/BudgetService";
 
 enum valueLabel {
   currency = "Valore monetario (€)",

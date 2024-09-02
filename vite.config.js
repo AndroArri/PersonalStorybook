@@ -7,8 +7,6 @@ export default defineConfig({
   plugins: [vue(), nodePolyfills()],
   resolve: {
     alias: {
-      "@": path.join(__dirname, "/resources/js/"),
-      "resources": path.join(__dirname, "/resources/"),
       "src": path.join(__dirname, "/src/"),
       "assets": path.join(__dirname, "/assets")
     },
