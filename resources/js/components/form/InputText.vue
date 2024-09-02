@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
 import Inputtext from "primevue/inputtext";
-import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum.ts";
 import { computed } from "vue";
 
 export interface iInputTextProps {

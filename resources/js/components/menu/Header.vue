@@ -63,7 +63,7 @@ import { ref } from "vue";
 import Button from "@/components/button/Button.vue";
 import ProfileMenu from "@/components/menu/ProfileMenu.vue";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum.ts";
 
 const props = withDefaults(
   defineProps<{
