@@ -28,9 +28,9 @@ export default {
             'text-surface-600 dark:text-surface-0/60'
         ]
     },
-    // content: {
-    //     class: 'pb-5' // Vertical padding.
-    // },
+    content: {
+        class: 'py-5' // Vertical padding.
+    },
     footer: {
         class: 'pt-5' // Top padding.
     }
