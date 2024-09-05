@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-6">
-    <div class="grid col-span-4 col-start-4">
+    <div class="grid col-span-4 col-start-2">
       <Card
         ><template #title
           ><span v-if="props.pageType === ePageType.Login"
