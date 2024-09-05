@@ -3,11 +3,11 @@ import { Preview, setup } from "@storybook/vue3";
 import Ripple from "primevue/ripple";
 import { themes } from "@storybook/theming";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import Lara from "../src/js/components/presets/Lara/index";
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import Lara from "../src/js/presets/Lara";
 
 // Import global styles
-import "/src/css/app.css";
+import "src/css/app.css";
 import "primeicons/primeicons.css";
 // Import composable
 // Toast service
