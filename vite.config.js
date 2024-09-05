@@ -7,10 +7,10 @@ export default defineConfig({
   plugins: [vue(), nodePolyfills()],
   resolve: {
     alias: {
-      "@": path.join(__dirname, "/resources/js/"),
-      "resources": path.join(__dirname, "/resources/"),
+      "@j": path.join(__dirname, "/src/js/"),
       "src": path.join(__dirname, "/src/"),
-      "assets": path.join(__dirname, "/assets")
+      "assets": path.join(__dirname, "/assets/"),
+      "resources": path.join(__dirname, "/resources/")
     },
   },
 });

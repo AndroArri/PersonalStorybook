@@ -1,4 +1,4 @@
-import Login, { ePageType } from "@/pages/auth/Login.vue";
+import Login, { ePageType } from "@j/pages/auth/Login.vue";
 
 export default {
     component: Login,

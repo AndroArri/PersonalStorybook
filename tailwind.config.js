@@ -5,8 +5,8 @@ import typography from '@tailwindcss/typography';
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        './resources/js/**/*.vue',
-        './resources/**/*.{js,ts,jsx,tsx}',
+        './src/js/**/*.vue',
+        './src/**/*.{js,ts,jsx,tsx}',
         "./stories/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     darkMode: ['class', '[data-mode="dark"'],

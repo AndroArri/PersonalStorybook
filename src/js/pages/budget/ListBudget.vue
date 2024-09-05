@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import Datatable, { iColumns} from "@/components/data/Datatable.vue";
+import Datatable, { iColumns} from "@j/components/data/Datatable.vue";
 import { onMounted, ref } from "vue";
 import useBudgetService from "resources/budgetProject/service/BudgetService";
 import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";

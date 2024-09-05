@@ -1,5 +1,5 @@
 
-import ColorPicker, { iColorPickerProps } from "@/components/form/ColorPicker.vue";
+import ColorPicker, { iColorPickerProps } from "@j/components/form/ColorPicker.vue";
 
 const slotValue = "slotValue";
 

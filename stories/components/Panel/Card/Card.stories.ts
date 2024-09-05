@@ -1,4 +1,4 @@
-import Card from '@/components/panel/Card.vue';
+import Card from '@j/components/panel/Card.vue';
 
 export default {
   component: Card,

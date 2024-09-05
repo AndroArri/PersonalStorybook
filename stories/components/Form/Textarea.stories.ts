@@ -1,5 +1,5 @@
 
-import Textarea, { iTextareaProps } from "@/components/form/Textarea.vue";
+import Textarea, { iTextareaProps } from "@j/components/form/Textarea.vue";
 
 const slotValue = "slotValue";
 const textareaProps: iTextareaProps = {

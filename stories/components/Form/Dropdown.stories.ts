@@ -1,5 +1,5 @@
 
-import Dropdown, { iDropdownProps, iDropdownOptions } from "@/components/form/Dropdown.vue";
+import Dropdown, { iDropdownProps, iDropdownOptions } from "@j/components/form/Dropdown.vue";
 
 const slotValue = "slotValue";
 

@@ -106,20 +106,20 @@
 
 <script lang="ts">
 import ObjService from "resources/common/service/ObjService";
-import Card from "@/components/panel/Card.vue";
-import InputText from "@/components/form/InputText.vue";
-import ColorPicker from "@/components/form/ColorPicker.vue";
-import InputNumber from "@/components/form/InputNumber.vue";
-import InputSwitch from "@/components/form/InputSwitch.vue";
-import Button from "@/components/button/Button.vue";
+import Card from "@j/components/panel/Card.vue";
+import InputText from "@j/components/form/InputText.vue";
+import ColorPicker from "@j/components/form/ColorPicker.vue";
+import InputNumber from "@j/components/form/InputNumber.vue";
+import InputSwitch from "@j/components/form/InputSwitch.vue";
+import Button from "@j/components/button/Button.vue";
 import { onBeforeMount, onMounted, reactive, ref } from "vue";
-import Dropdown, { iDropdownOptions } from "@/components/form/Dropdown.vue";
-import Calendar from "@/components/form/Calendar.vue";
+import Dropdown, { iDropdownOptions } from "@j/components/form/Dropdown.vue";
+import Calendar from "@j/components/form/Calendar.vue";
 import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
 import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import IconPicker from "@/components/form/IconPicker.vue";
+import IconPicker from "@j/components/form/IconPicker.vue";
 import { useToast } from "primevue/usetoast";
 
 // Import Composables
