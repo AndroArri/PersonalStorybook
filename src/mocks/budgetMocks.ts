@@ -1,9 +1,9 @@
 import { AsyncResponseResolverReturnType, http, HttpResponse } from "msw";
 import budgetJson from "assets/data/Budget.json";
-import BudgetDto from "resources/budgetProject/dto/BudgetDto";
-import ObjService from "resources/common/service/ObjService";
-import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
-import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
+import BudgetDto from "src/budgetProject/dto/BudgetDto";
+import ObjService from "src/common/service/ObjService";
+import { eInputNumberType } from "src/budgetProject/enum/components/InputNumberEnum";
+import { eBudgetStatus } from "src/budgetProject/enum/budget/BudgetEnum";
 
 
 export enum RouteList {

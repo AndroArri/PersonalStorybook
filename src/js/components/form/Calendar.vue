@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { eCalendarSelectionMode } from "resources/budgetProject/enum/components/CalendarEnum";
+import { eCalendarSelectionMode } from "src/budgetProject/enum/components/CalendarEnum.ts";
 
 const DATE_FORMAT = "dd/mm/yy";
 export interface iCalendarProps {
@@ -34,7 +34,7 @@ export interface iCalendarProps {
 <script lang="ts" setup>
 import Calendar from "primevue/calendar";
 
-const value = defineModel();
+const value = defineModel('');
 
 const today = new Date();
 

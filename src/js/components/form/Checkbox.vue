@@ -1,10 +1,11 @@
 <template>
-  <div :class="proxy">
+  <div :class="divClass">
     <label :for="props.id" :class="labelClass"> <slot></slot></label>
     <Checkbox
       v-model="checkboxValue"
       :inputId="props.id"
       :value="props.id"
+      :binary="true"
     ></Checkbox>
   </div>
 </template>
@@ -30,7 +31,7 @@ const props = withDefaults(defineProps<iCheckboxProps>(), {
 
 const checkboxValue = defineModel();
 
-const proxy = computed(() => {
+const divClass = computed(() => {
   switch (props.positionLabel) {
     case ePositionLabel.Left:
     case ePositionLabel.Right:

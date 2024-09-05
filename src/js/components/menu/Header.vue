@@ -62,8 +62,8 @@ import Badge from "primevue/badge";
 import { ref } from "vue";
 import Button from "@j/components/button/Button.vue";
 import ProfileMenu from "@j/components/menu/ProfileMenu.vue";
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
+import { eComponentSize } from "src/budgetProject/enum/components/sizeEnum";
 
 const props = withDefaults(
   defineProps<{

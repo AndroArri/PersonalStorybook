@@ -1,6 +1,6 @@
 
 import InputText, { iInputTextProps } from "@j/components/form/InputText.vue";
-import { eComponentSize } from "resources/budgetProject/enum/components/sizeEnum";
+import { eComponentSize } from "src/budgetProject/enum/components/sizeEnum";
 
 const slotValue = "slotValue";
 const inputTextProps: iInputTextProps = {
