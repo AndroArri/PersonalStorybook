@@ -1,5 +1,5 @@
 
-import InputNumber, { iInputNumberProps } from "src/js/components/form/InputNumber.vue";
+import InputNumber, { iInputNumberProps } from "@j/components/form/InputNumber.vue";
 import { eInputNumberType } from "src/budgetProject/enum/components/InputNumberEnum";
 const slotValue = "slotValue";
 const inputNumberProps: iInputNumberProps = {

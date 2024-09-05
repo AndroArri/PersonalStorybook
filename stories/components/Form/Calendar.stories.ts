@@ -1,7 +1,7 @@
 
-import { iCalendarProps } from "src/js/components/form/Calendar.vue";
+import { iCalendarProps } from "@j/components/form/Calendar.vue";
 import { eCalendarSelectionMode } from "src/budgetProject/enum/components/CalendarEnum";
-import Calendar from "src/js/components/form/Calendar.vue";
+import Calendar from "@j/components/form/Calendar.vue";
 
 const slotValue = "slotValue";
 const calendarProps: iCalendarProps = {

@@ -7,7 +7,7 @@ import { initialize, mswLoader } from 'msw-storybook-addon';
 import Lara from "../src/js/presets/Lara";
 
 // Import global styles
-import "../src/css/app.css";
+import "src/css/app.css";
 import "primeicons/primeicons.css";
 // Import composable
 // Toast service

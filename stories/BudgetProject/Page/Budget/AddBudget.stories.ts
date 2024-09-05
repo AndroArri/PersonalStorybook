@@ -1,4 +1,4 @@
-import Budget from "src/js/pages/budget/Budget.vue";
+import Budget from "@j/pages/budget/Budget.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta: Meta<typeof Budget> = {

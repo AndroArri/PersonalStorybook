@@ -18,8 +18,8 @@
 import Button from "primevue/button";
 import { computed } from "vue";
 import { PrimeIcons } from "primevue/api";
-import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum.ts";
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
+import { eComponentSize } from "src/budgetProject/enum/components/sizeEnum";
+import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
 
 export interface iButtonProps {
   id: string;

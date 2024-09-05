@@ -1,5 +1,4 @@
-import Login, { ePageType } from "src/js/pages/auth/Login.vue";
-import { fn } from "@storybook/test";
+import Login, { ePageType } from "@j/pages/auth/Login.vue";
 
 export default {
     component: Login,

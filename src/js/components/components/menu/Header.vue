@@ -60,8 +60,8 @@
 import Menubar from "primevue/menubar";
 import Badge from "primevue/badge";
 import { ref } from "vue";
-import Button from "@/components/button/Button.vue";
-import ProfileMenu from "@/components/menu/ProfileMenu.vue";
+import Button from "@j/components/button/Button.vue";
+import ProfileMenu from "@j/components/menu/ProfileMenu.vue";
 import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
 import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum.ts";
 

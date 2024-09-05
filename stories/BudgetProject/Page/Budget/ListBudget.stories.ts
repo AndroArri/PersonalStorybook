@@ -1,4 +1,4 @@
-import ListBudget from "src/js/pages/budget/ListBudget.vue";
+import ListBudget from "@j/pages/budget/ListBudget.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { budgetRoute } from "src/mocks/budgetMocks";
 

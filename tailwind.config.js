@@ -1,14 +1,21 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        './resources/js/**/*.vue',
-        './resources/**/*.{js,ts,jsx,tsx}',
+        './src/js/**/*.vue',
+        './src/**/*.{js,ts,jsx,tsx}',
         "./stories/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     darkMode: ['class', '[data-mode="dark"'],
     lightMode: ['class', '[data-mode="light"]'],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
             colors: {
                 'primary-50': 'rgb(var(--primary-50))',
                 'primary-100': 'rgb(var(--primary-100))',

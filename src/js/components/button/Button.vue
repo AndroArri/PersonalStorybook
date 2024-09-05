@@ -17,7 +17,7 @@
 <script lang="ts">
 import Button from "primevue/button";
 import { computed } from "vue";
-import { PrimeIcons } from "@primevue/core/api";
+import { PrimeIcons } from "primevue/api";
 import { eComponentSize } from "src/budgetProject/enum/components/sizeEnum";
 import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
 

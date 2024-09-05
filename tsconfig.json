@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/js/*"]
+      "@j/*": ["src/js/*"],
+      "src/*": ["src/*"],
+      "assets/*": ["assets/*"],
+      "resources/*": ["resources/*"]
     },
     "strict": true,
     "resolveJsonModule": true,

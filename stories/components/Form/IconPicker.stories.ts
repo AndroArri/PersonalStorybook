@@ -1,4 +1,4 @@
-import IconPicker from "src/js/components/form/IconPicker.vue";
+import IconPicker from "@j/components/form/IconPicker.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta: Meta<typeof IconPicker> = {

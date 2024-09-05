@@ -1,5 +1,5 @@
 
-import Password, { iPasswordProps } from "src/js/components/form/Password.vue";
+import Password, { iPasswordProps } from "@j/components/form/Password.vue";
 
 const slotValue = "slotValue";
 const passwordProps: iPasswordProps = {

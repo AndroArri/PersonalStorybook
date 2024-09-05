@@ -39,7 +39,7 @@ const DEFUALTROWSFILTER = [10, 20, 50, 100];
 <script setup lang="ts">
 import DataTable, { DataTablePassThroughOptions } from "primevue/datatable";
 import Column from "primevue/column";
-import { PrimeIcons } from "@primevue/core/api";
+import { PrimeIcons } from "primevue/api";
 
 const emits = defineEmits(["page", "sort", "filter"]);
 
