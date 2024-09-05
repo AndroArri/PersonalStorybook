@@ -1,4 +1,4 @@
-import Login, { ePageType } from "@/pages/auth/Login.vue";
+import Login, { ePageType } from "src/js/pages/auth/Login.vue";
 import { fn } from "@storybook/test";
 
 export default {

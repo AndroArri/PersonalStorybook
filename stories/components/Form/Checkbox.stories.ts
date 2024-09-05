@@ -1,5 +1,5 @@
 
-import Checkbox, { ePositionLabel, iCheckboxProps } from "@/components/form/Checkbox.vue";
+import Checkbox, { ePositionLabel, iCheckboxProps } from "src/js/components/form/Checkbox.vue";
 
 let slotValue = "slotValue";
 const checkboxProps: iCheckboxProps = {
