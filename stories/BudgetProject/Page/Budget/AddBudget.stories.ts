@@ -1,7 +1,5 @@
-import Budget from "@/pages/budget/Budget.vue";
+import Budget from "src/js/pages/budget/Budget.vue";
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
-import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
 
 const meta: Meta<typeof Budget> = {
     component: Budget

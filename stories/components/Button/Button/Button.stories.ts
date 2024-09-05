@@ -1,8 +1,8 @@
 import { fn } from "@storybook/test";
-import Button, { iButtonProps } from "@/components/button/Button.vue"
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
-import { PrimeIcons, PrimeIconsOptions } from "primevue/api";
-import { eComponentSize } from "resources/budgetProject/enum/components/SizeEnum";
+import Button, { iButtonProps } from "src/js/components/button/Button.vue"
+import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
+import { PrimeIcons } from "@primevue/core/api";
+import { eComponentSize } from "src/budgetProject/enum/components/sizeEnum";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
