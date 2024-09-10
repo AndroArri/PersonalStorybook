@@ -1,5 +1,5 @@
 
-import InputSwitch, { iInputSwitchProps } from "@/components/form/InputSwitch.vue";
+import InputSwitch, { iInputSwitchProps } from "src/js/components/form/InputSwitch.vue";
 const slotValue = "slotValue";
 const inputNumberProps: iInputSwitchProps = {
     id: "inputswitch",

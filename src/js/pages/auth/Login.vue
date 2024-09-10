@@ -35,11 +35,11 @@
 </template>
 
 <script lang="ts">
-import Card from "@/components/panel/Card.vue";
-import InputText from "@/components/form/InputText.vue";
-import Button from "@/components/button/Button.vue";
-import Checkbox, { ePositionLabel } from "@/components/form/Checkbox.vue";
-import Password from "@/components/form/Password.vue";
+import Card from "src/js/components/panel/Card.vue";
+import InputText from "src/js/components/form/InputText.vue";
+import Button from "src/js/components/button/Button.vue";
+import Checkbox, { ePositionLabel } from "src/js/components/form/Checkbox.vue";
+import Password from "src/js/components/form/Password.vue";
 import { ref, computed } from "vue";
 
 export enum ePageType {

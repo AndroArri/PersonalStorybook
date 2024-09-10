@@ -10,7 +10,7 @@ export interface iIconPicker {
 import ObjService from "resources/common/service/ObjService";
 import Dropdown, { DropdownChangeEvent } from "primevue/dropdown";
 import { PrimeIcons } from "primevue/api";
-import { iDropdownOptionsMap } from "./Dropdown.vue";
+import { iDropdownOptionsMap } from "../../../../src/js/components/form/Dropdown.vue";
 import { ref } from "vue";
 
 const props = withDefaults(defineProps<iIconPicker>(), {
