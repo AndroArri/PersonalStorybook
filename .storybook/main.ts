@@ -23,6 +23,6 @@ const config: StorybookConfig = {
     skipCompiler: false
   },
   docs: {},
-  staticDirs: ['../public', '../assets', '../src']
+  staticDirs: ['../public', '../assets']
 };
 export default config;

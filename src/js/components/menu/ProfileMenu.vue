@@ -16,7 +16,11 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+<<<<<<< HEAD
 import Button from "@j/components/button/Button.vue";
+=======
+import Button from "src/js/components/button/Button.vue";
+>>>>>>> move-resources-to-src
 import TieredMenu from "primevue/tieredmenu";
 import Avatar from "primevue/avatar";
 

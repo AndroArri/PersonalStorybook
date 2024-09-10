@@ -8,8 +8,9 @@ export interface iIconPicker {
 
 <script setup lang="ts">
 import ObjService from "src/common/service/ObjService";
-import { PrimeIcons } from "@primevue/core/api";
-import Dropdown, { iDropdownOptionsMap } from "src/js/components/form/Dropdown.vue";
+import Dropdown, { DropdownChangeEvent } from "primevue/dropdown";
+import { PrimeIcons } from "primevue/api";
+import { iDropdownOptionsMap } from "./Dropdown.vue";
 import { ref } from "vue";
 
 const props = withDefaults(defineProps<iIconPicker>(), {
@@ -18,6 +19,7 @@ const props = withDefaults(defineProps<iIconPicker>(), {
 });
 const model = defineModel();
 const iconPicker = ref(null);
+
 </script>
 
 <template>
@@ -39,9 +41,7 @@ const iconPicker = ref(null);
       <template #value="slotProps">
         <div v-if="slotProps.value">
           <i :class="slotProps.value"></i>
-          <span class="ml-2">{{
-            ObjService.of(PrimeIcons).currentKey(slotProps.value).toLowerCase()
-          }}</span>
+          <span class="ml-2">{{ ObjService.of(PrimeIcons).currentKey(slotProps.value).toLowerCase() }}</span>
         </div>
         <span v-else>
           {{ slotProps.placeholder }}
