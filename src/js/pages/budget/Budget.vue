@@ -6,7 +6,7 @@
       </span></template
     >
     <template #content>
-      <div class="grid grid-cols-5 gap-4">
+      <div class="grid grid-cols-5 gap-2">
         <InputText
           id="name"
           :invalid="formField.name.invalid"
