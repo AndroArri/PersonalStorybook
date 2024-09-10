@@ -3,7 +3,7 @@ import { Preview, setup } from "@storybook/vue3";
 import Ripple from "primevue/ripple";
 import { themes } from "@storybook/theming";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import Lara from "../resources/js/components/presets/Lara/index";
+import Lara from "../resources/js/presets/Lara/index";
 import { initialize, mswLoader } from 'msw-storybook-addon';
 
 // Import global styles
