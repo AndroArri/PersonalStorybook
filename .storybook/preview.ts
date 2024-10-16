@@ -4,7 +4,7 @@ import Ripple from "primevue/ripple";
 import { themes } from "@storybook/theming";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import Lara from "../src/js/presets/Lara";
+import Lara from "../src/presets/Lara";
 
 // Import global styles
 import "src/css/app.css";

@@ -1,4 +1,4 @@
-import Home from "/src/js/layouts/Layout.vue";
+import Home from "src/js/layouts/Layout.vue";
 
 export default {
     component: Home,
