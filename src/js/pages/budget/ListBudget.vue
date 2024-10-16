@@ -12,8 +12,8 @@
 <script lang="ts">
 import Datatable, { iColumns} from "@j/components/data/Datatable.vue";
 import { onMounted, ref } from "vue";
-import useBudgetService from "resources/budgetProject/service/BudgetService";
-import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
+import useBudgetService from "src/budgetProject/service/BudgetService";
+import { iBudgetDto } from "src/budgetProject/dto/BudgetDto";
 const IDDATATABLE: string = "idListDatatable";
 </script>
 

@@ -105,7 +105,7 @@
 </template>
 
 <script lang="ts">
-import ObjService from "resources/common/service/ObjService";
+import ObjService from "src/common/service/ObjService";
 import Card from "@j/components/panel/Card.vue";
 import InputText from "@j/components/form/InputText.vue";
 import ColorPicker from "@j/components/form/ColorPicker.vue";
@@ -115,16 +115,16 @@ import Button from "@j/components/button/Button.vue";
 import { onBeforeMount, onMounted, reactive, ref } from "vue";
 import Dropdown, { iDropdownOptions } from "@j/components/form/Dropdown.vue";
 import Calendar from "@j/components/form/Calendar.vue";
-import { iBudgetDto } from "resources/budgetProject/dto/BudgetDto";
-import { eInputNumberType } from "resources/budgetProject/enum/components/InputNumberEnum";
-import { eBudgetStatus } from "resources/budgetProject/enum/budget/BudgetEnum";
-import { eSeverity } from "resources/budgetProject/enum/components/ButtonEnum";
+import { iBudgetDto } from "src/budgetProject/dto/BudgetDto";
+import { eInputNumberType } from "src/budgetProject/enum/components/InputNumberEnum";
+import { eBudgetStatus } from "src/budgetProject/enum/budget/BudgetEnum";
+import { eSeverity } from "src/budgetProject/enum/components/ButtonEnum";
 import IconPicker from "@j/components/form/IconPicker.vue";
 import { useToast } from "primevue/usetoast";
 
 // Import Composables
-import useBankAccountService from "resources/budgetProject/service/BankAccountService";
-import useBudgetService from "resources/budgetProject/service/BudgetService";
+import useBankAccountService from "src/budgetProject/service/BankAccountService";
+import useBudgetService from "src/budgetProject/service/BudgetService";
 
 enum valueLabel {
   currency = "Valore monetario (€)",

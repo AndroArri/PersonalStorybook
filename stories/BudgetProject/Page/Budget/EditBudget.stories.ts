@@ -1,5 +1,5 @@
 import Budget from "@j/pages/budget/Budget.vue";
-import useBudgetService from "resources/budgetProject/service/BudgetService";
+import useBudgetService from "src/budgetProject/service/BudgetService";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const budgetService = useBudgetService();
